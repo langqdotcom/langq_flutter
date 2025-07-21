@@ -1,0 +1,10 @@
+{
+  "welcome.message": "नमस्ते, {userName}!",
+  "hello.world": "नमस्ते दुनिया!",
+  "message.notification": "आपके पास {messageCount, plural, =0{कोई नया संदेश नहीं है} one{1 नया संदेश है} other{{messageCount} नए संदेश हैं}}।",
+  "information.departmentAndTask": "{departmentCount} विभागों में {teamCount} टीमें {projectCount} परियोजनाओं पर काम कर रही हैं, जिनमें {taskCount} खुली कार्य हैं।",
+  "message.newTickets": "आपके पास {ticketCount, plural, =0{कोई नए टिकट नहीं} one{1 नया टिकट} other{{ticketCount} नए टिकट}}।",
+  "message.documentView": "{userCount, plural, =0{कोई उपयोगकर्ता नहीं} one{1 उपयोगकर्ता} other{{userCount} उपयोगकर्ता}} {documentCount, plural, =0{कोई दस्तावेज़ नहीं} one{1 दस्तावेज़} other{{documentCount} दस्तावेज़}} देख रहे हैं।",
+  "message.overdue": "{invoiceCount, plural, =0{कोई चालान नहीं है} one{1 चालान है} other{# चालान हैं}} कुल {amount} की देर से।",
+  "message.order": "आपका ऑर्डर {itemCount, plural, =0{कोई वस्तु नहीं} one{1 वस्तु} other{{itemCount} वस्तुएँ}} की कीमत {amount} पर {date} को दिया गया।"
+}

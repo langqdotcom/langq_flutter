@@ -1,0 +1,8 @@
+{
+  "welcome.message": "مرحبًا، {userName}!",
+  "hello.world": "مرحبا بالعالم!",
+  "message.notification": "لديك {messageCount, plural, =0{لا توجد رسائل جديدة} one{رسالة جديدة واحدة} other{{messageCount} رسائل جديدة}}.",
+  "information.departmentAndTask": "{departmentCount} إدارة لديها {teamCount} فرق تعمل على {projectCount} مشاريع مع {taskCount} مهام مفتوحة.",
+  "message.newTickets": "لديك {ticketCount, plural, =0{لا تذاكر جديدة} one{تذكرة جديدة واحدة} other{{ticketCount} تذاكر جديدة}}.",
+  "message.documentView": "{userCount, plural, =0{لا مستخدمين} one{مستخدم واحد} other{{userCount} مستخدمين}} يعرضون {documentCount, plural, =0{لا مستندات} one{1 مستند} other{{documentCount} مستندات}}."
+}

@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Habari, {userName}!",
+  "hello.world": "Habari Dunia!",
+  "message.notification": "Una {messageCount, plural, =0{hakuna ujumbe mpya} one{ujumbe mpya 1} other{jumbe mpya {messageCount}}}.",
+  "information.departmentAndTask": "Kuna {departmentCount} idara zikiwa na {teamCount} timu zinazofanya kazi kwenye {projectCount} miradi yenye {taskCount} kazi wazi.",
+  "message.newTickets": "Una {ticketCount, plural, =0{tiketi mpya} one{tiketi mpya 1} other{{ticketCount} tiketi mpya}}.",
+  "message.documentView": "{userCount, plural, =0{hakuna watumiaji} one{mtumiaji 1} other{{userCount} watumiaji}} wanatazama {documentCount, plural, =0{hakuna hati} one{hati 1} other{{documentCount} hati}}."
+}

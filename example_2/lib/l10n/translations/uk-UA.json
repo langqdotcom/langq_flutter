@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Привіт, {userName}!",
+  "hello.world": "Привіт, світе!",
+  "message.notification": "У вас {messageCount, plural, =0{жодних нових повідомлень} one{1 нове повідомлення} other{{messageCount} нових повідомлень}}.",
+  "information.departmentAndTask": "Є {departmentCount} департаментів, які мають {teamCount} команд, що працюють над {projectCount} проектами з {taskCount} відкритими завданнями.",
+  "message.newTickets": "У вас {ticketCount, plural, =0{немає нових квитків} one{1 новий квиток} other{{ticketCount} нових квитків}}.",
+  "message.documentView": "{userCount, plural, =0{немає користувачів} one{1 користувач} few{# користувача} many{# користувачів} other{{userCount} користувача}} переглядають {documentCount, plural, =0{немає документів} one{1 документ} few{# документа} many{# документів} other{{documentCount} документів}}."
+}

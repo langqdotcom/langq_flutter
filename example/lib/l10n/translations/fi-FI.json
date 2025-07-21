@@ -1,0 +1,10 @@
+{
+  "welcome.message": "Hei, {userName}!",
+  "hello.world": "Moi maailma!",
+  "message.notification": "Sinulla on {messageCount, plural, =0{ei uusia viestejä} one{1 uusi viesti} other{{messageCount} uutta viestiä}}.",
+  "information.departmentAndTask": "{departmentCount} osastoa, joilla on {teamCount} tiimiä työskentelemässä {projectCount} projektissa, ja {taskCount} avointa tehtävää.",
+  "message.newTickets": "Sinulla on {ticketCount, plural, =0{ei uusia lippuja} one{1 uusi lippu} other{{ticketCount} uutta lippua}}.",
+  "message.documentView": "{userCount, plural, =0{ei käyttäjiä} one{1 käyttäjä} other{{userCount} käyttäjää}} katsoo {documentCount, plural, =0{ei asiakirjoja} one{1 asiakirja} other{{documentCount} asiakirjaa}}.",
+  "message.overdue": "{invoiceCount, plural, =0{Ei ole laskuja} one{On 1 lasku} other{On # laskua}} yhteensä {amount}, joka on erääntynyt.",
+  "message.order": "Tilauksesi, jossa on {itemCount, plural, =0{ei tuotteita} one{1 tuote} other{{itemCount} tuotetta}}, yhteensä {amount}, tehtiin {date}."
+}

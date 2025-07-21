@@ -1,0 +1,41 @@
+0000000000000000000000000000000000000000 2f2ae6ea08795c83d0b60a8bc30ea5430ad4ffde ib8 <internetworkzone@gmail.com> 1748344404 +0530	commit (initial): [Initial Commit]
+2f2ae6ea08795c83d0b60a8bc30ea5430ad4ffde 694bbf8dfbb7b6d9d534be1ea3aaae9680d1ea1a ib8 <internetworkzone@gmail.com> 1748346730 +0530	commit: [Add]: Added Example App
+694bbf8dfbb7b6d9d534be1ea3aaae9680d1ea1a dfbce861b14d9205a6a109b2fa9f1771b983dea8 ib8 <internetworkzone@gmail.com> 1748346745 +0530	commit: [Add]: Added Example App
+dfbce861b14d9205a6a109b2fa9f1771b983dea8 24e7cf3e6d9e1b2a3da203a9bcdbc2d1386c1197 ib8 <internetworkzone@gmail.com> 1749144364 +0530	commit: [CLI]: Added key generation as function
+24e7cf3e6d9e1b2a3da203a9bcdbc2d1386c1197 2c526c9a32a556f6c50024afe73f9dceae7b5c13 ib8 <internetworkzone@gmail.com> 1749569407 +0530	commit: [Pull]: Added Keys generation as function
+2c526c9a32a556f6c50024afe73f9dceae7b5c13 0aadf75b964cc60499d916da0ca623e6e3a28d39 ib8 <internetworkzone@gmail.com> 1749569431 +0530	commit: [Pull]: Added Keys generation as function
+0aadf75b964cc60499d916da0ca623e6e3a28d39 0aadf75b964cc60499d916da0ca623e6e3a28d39 ib8 <internetworkzone@gmail.com> 1749633794 +0530	reset: moving to HEAD
+0aadf75b964cc60499d916da0ca623e6e3a28d39 0aadf75b964cc60499d916da0ca623e6e3a28d39 ib8 <internetworkzone@gmail.com> 1749633802 +0530	checkout: moving from master to extract
+0aadf75b964cc60499d916da0ca623e6e3a28d39 31fee7aa58b53591d10eefb5af763477878fcd83 ib8 <internetworkzone@gmail.com> 1749652896 +0530	commit: [WIP]: Extract
+31fee7aa58b53591d10eefb5af763477878fcd83 0aadf75b964cc60499d916da0ca623e6e3a28d39 ib8 <internetworkzone@gmail.com> 1749652909 +0530	checkout: moving from extract to master
+0aadf75b964cc60499d916da0ca623e6e3a28d39 cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 ib8 <internetworkzone@gmail.com> 1749655427 +0530	commit: [Update]: Added dotenv
+cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 9bcee725397c2b9b294327d32ec2678b6670f5ed ib8 <internetworkzone@gmail.com> 1749690548 +0530	commit: [Example]: Example for extract
+9bcee725397c2b9b294327d32ec2678b6670f5ed cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 ib8 <internetworkzone@gmail.com> 1749708379 +0530	reset: moving to HEAD~1
+cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 ib8 <internetworkzone@gmail.com> 1749709317 +0530	checkout: moving from master to ota
+cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 e2252fc1e84a8da3485e1657c55cf5a36853dfb6 ib8 <internetworkzone@gmail.com> 1749730504 +0530	commit: [Add]: Added OTA support
+e2252fc1e84a8da3485e1657c55cf5a36853dfb6 cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 ib8 <internetworkzone@gmail.com> 1749730512 +0530	checkout: moving from ota to master
+cd5c54fb66c21bb09deb4eb64a0764a3632b01e7 3edfd9d19d0203e4e61dd20cf99e291ef2497719 ib8 <internetworkzone@gmail.com> 1749733139 +0530	commit: [Update]: As-function generation updated with num type for plurals
+3edfd9d19d0203e4e61dd20cf99e291ef2497719 463864d7dd303ce402c835ec47accd962a7972f7 ib8 <internetworkzone@gmail.com> 1751637060 +0530	commit: [Update]: Updated command for pull and added builder like widget
+463864d7dd303ce402c835ec47accd962a7972f7 4b2d60e15323a6a9349a09197063a6325e5f94a6 ib8 <internetworkzone@gmail.com> 1751637638 +0530	commit: [Update]: Updated example
+4b2d60e15323a6a9349a09197063a6325e5f94a6 d9bfd68a9cbd1219b61311639fd811bfe111a896 ib8 <internetworkzone@gmail.com> 1751718522 +0530	commit: [Update]: Changed package name to langq_localization
+d9bfd68a9cbd1219b61311639fd811bfe111a896 eb01fa4ce6fbac002b17c37fa54a8af6e848edd4 ib8 <internetworkzone@gmail.com> 1751816002 +0530	pull: Fast-forward
+eb01fa4ce6fbac002b17c37fa54a8af6e848edd4 e48154199b64b25d39a56c2e982dadde9169b89b ib8 <internetworkzone@gmail.com> 1751817624 +0530	commit: [Cleanup]
+e48154199b64b25d39a56c2e982dadde9169b89b 76d5dec8f7a82556747fd9005d870608d13e39f0 ib8 <internetworkzone@gmail.com> 1751866730 +0530	commit: [Cleanup]
+76d5dec8f7a82556747fd9005d870608d13e39f0 b9e89d4f54f722b44c64303e851391a357f585c0 ib8 <internetworkzone@gmail.com> 1751866987 +0530	commit: [Cleanup]
+b9e89d4f54f722b44c64303e851391a357f585c0 c0f23d96a0b64e8961a8e91fe60310eacc0df324 ib8 <internetworkzone@gmail.com> 1751870295 +0530	commit: [Cleanup]
+c0f23d96a0b64e8961a8e91fe60310eacc0df324 3696f7fcdd18937797b1621c17277735fcf2e061 ib8 <internetworkzone@gmail.com> 1751879955 +0530	commit: [Example]: Example updated for demo
+3696f7fcdd18937797b1621c17277735fcf2e061 b096e3e4ce2ed9f1a829fd6c042e37d0fc7f6cff ib8 <internetworkzone@gmail.com> 1751880056 +0530	commit: [Update]: created generated folder
+b096e3e4ce2ed9f1a829fd6c042e37d0fc7f6cff dbf5455904ac820dca946df72f3361b41c025a38 ib8 <internetworkzone@gmail.com> 1751881859 +0530	commit: [Readme]
+dbf5455904ac820dca946df72f3361b41c025a38 125ae280823f1775b7095645d193a148117edeb3 ib8 <internetworkzone@gmail.com> 1751884786 +0530	commit: [Example]: Created translations folder
+125ae280823f1775b7095645d193a148117edeb3 0644deda4c41a8a1ccb114eb8945b6b9cfbc98e5 ib8 <internetworkzone@gmail.com> 1751884839 +0530	commit: [Cleanup]
+0644deda4c41a8a1ccb114eb8945b6b9cfbc98e5 970ec447d5df60458bf27a29f17bdb2e49614d50 ib8 <internetworkzone@gmail.com> 1751884994 +0530	commit: [Readme]: readme updated
+970ec447d5df60458bf27a29f17bdb2e49614d50 40274938011343d8d34f88188bac9fe9ebf49964 ib8 <internetworkzone@gmail.com> 1751887125 +0530	commit: [Readme]
+40274938011343d8d34f88188bac9fe9ebf49964 2066db3862f06af1b7fbf4223e8b6aaabf7d9b2b ib8 <internetworkzone@gmail.com> 1751891907 +0530	commit: [Update]: Updated --strings as flag command
+2066db3862f06af1b7fbf4223e8b6aaabf7d9b2b c1e1eacafef9901ba25b44127231f25213aedcdb ib8 <internetworkzone@gmail.com> 1751893199 +0530	commit: [Cleanup]
+c1e1eacafef9901ba25b44127231f25213aedcdb 28ccd997a524da6127059299278b2a43dca4ddc8 ib8 <internetworkzone@gmail.com> 1751893599 +0530	commit: [License]
+28ccd997a524da6127059299278b2a43dca4ddc8 ff06eafc4777cb79112e712581c14ab5115d184c ib8 <internetworkzone@gmail.com> 1752925399 +0530	pull: Fast-forward
+ff06eafc4777cb79112e712581c14ab5115d184c f9478d2dc41a4800433553ec2fa06ce6e97ea453 ib8 <internetworkzone@gmail.com> 1753020032 +0530	commit: [Readme]: updated
+f9478d2dc41a4800433553ec2fa06ce6e97ea453 42d1898db6e12f507637b90ae08b678027e6e6b8 ib8 <internetworkzone@gmail.com> 1753022050 +0530	commit: [Readme]: updated
+42d1898db6e12f507637b90ae08b678027e6e6b8 6759f7ca8ad45f72eb8cf5a2dbfbb1cdc560817e ib8 <internetworkzone@gmail.com> 1753022130 +0530	commit: [Readme]: updated
+6759f7ca8ad45f72eb8cf5a2dbfbb1cdc560817e 87fc3c74d4496683dba9a13f880c250fd30af23e ib8 <internetworkzone@gmail.com> 1753085375 +0530	commit: [Update]: Added NumberFormat support for plurals
+87fc3c74d4496683dba9a13f880c250fd30af23e 4b97966a4627aab4c86529fbe3c45e5a8ab0b5d5 ib8 <internetworkzone@gmail.com> 1753093293 +0530	commit: [Update]: Removed number formatting

@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Merhaba, {userName}!",
+  "hello.world": "Merhaba Dünya!",
+  "message.notification": "{messageCount, plural, =0{hiç yeni mesaj yok} one{1 yeni mesaj var} other{{messageCount} yeni mesaj var}}.",
+  "information.departmentAndTask": "{departmentCount} departmanı, {teamCount} ekibin {projectCount} projede {taskCount} açık görevle çalıştığını belirtmektedir.",
+  "message.newTickets": "{ticketCount, plural, =0{hiç yeni bilet yok} one{1 yeni bilet} other{{ticketCount} yeni bilet}} var.",
+  "message.documentView": "{userCount, plural, =0{hiç kullanıcı} one{1 kullanıcı} other{{userCount} kullanıcı}} {documentCount, plural, =0{hiç belge} one{1 belge} other{{documentCount} belge}} görüntülüyor."
+}

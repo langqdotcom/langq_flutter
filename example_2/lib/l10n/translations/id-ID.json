@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Halo, {userName}!",
+  "hello.world": "Halo Dunia!",
+  "message.notification": "Anda memiliki {messageCount, plural, =0{tidak ada pesan baru} one{1 pesan baru} other{{messageCount} pesan baru}}.",
+  "information.departmentAndTask": "{departmentCount} departemen memiliki {teamCount} tim yang bekerja pada {projectCount} proyek dengan {taskCount} tugas terbuka.",
+  "message.newTickets": "Anda memiliki {ticketCount, plural, =0{tidak ada tiket baru} one{1 tiket baru} other{{ticketCount} tiket baru}}.",
+  "message.documentView": "{userCount, plural, =0{tidak ada pengguna} one{1 pengguna} other{{userCount} pengguna}} sedang melihat {documentCount, plural, =0{tidak ada dokumen} one{1 dokumen} other{{documentCount} dokumen}}."
+}

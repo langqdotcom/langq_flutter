@@ -1,0 +1,10 @@
+{
+  "welcome.message": "Bok, {userName}!",
+  "hello.world": "Bok svijete!",
+  "message.notification": "Imate {messageCount, plural, =0{nema novih poruka} one{1 nova poruka} other{{messageCount} nove poruke}}.",
+  "information.departmentAndTask": "Postoji {departmentCount} odjela koji imaju {teamCount} timova koji rade na {projectCount} projekata s {taskCount} otvorenih zadataka.",
+  "message.newTickets": "Imate {ticketCount, plural, =0{nema novih ulaznica} one{1 nova ulaznica} other{{ticketCount} nove ulaznice}}.",
+  "message.documentView": "{userCount, plural, =0{nema korisnika} one{1 korisnik} other{{userCount} korisnika}} gleda {documentCount, plural, =0{nema dokumenata} one{1 dokument} other{{documentCount} dokumenata}}.",
+  "message.overdue": "{invoiceCount, plural, =0{Nema računa} one{Postoji 1 račun} few{Postoji # računa} many{Postoji # računa} other{Postoji # računa}} u ukupnom iznosu od {amount} koja je dospjela.",
+  "message.order": "Vaša narudžba s {itemCount, plural, one{1 stavkom} few{# stavkama} many{# stavki} other{{itemCount} stavkama}} u vrednosti {amount} je napravljena {date}."
+}

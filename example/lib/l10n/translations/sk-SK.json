@@ -1,0 +1,10 @@
+{
+  "welcome.message": "Ahoj, {userName}!",
+  "hello.world": "Ahoj svet!",
+  "message.notification": "Máte {messageCount, plural, =0{žiadne nové správy} one{1 novú správu} few{2 nové správy} many{3-4 nové správy} other{{messageCount} nových správ}}.",
+  "information.departmentAndTask": "{departmentCount} oddelení má {teamCount} tímov, ktorí pracujú na {projectCount} projektoch s {taskCount} otvorenými úlohami.",
+  "message.newTickets": "Máte {ticketCount, plural, =0{žiadne nové vstupenky} one{1 novú vstupenku} other{{ticketCount} nové vstupenky}}.",
+  "message.documentView": "{userCount, plural, =0{žiadni užívatelia} one{1 používateľ} other{{userCount} používatelia}} sledujú {documentCount, plural, =0{žiadne dokumenty} one{1 dokument} other{{documentCount} dokumenty}}.",
+  "message.overdue": "undefined",
+  "message.order": "Vaša objednávka s {itemCount, plural, one{1 položkou} few{# položkami} many{# položkami} other{{itemCount} položkami}} vo výške {amount} bola odoslaná dňa {date}."
+}

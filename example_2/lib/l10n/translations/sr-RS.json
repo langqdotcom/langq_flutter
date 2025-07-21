@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Здраво, {userName}!",
+  "hello.world": "Здраво света!",
+  "message.notification": "Imate {messageCount, plural, =0{nema novih poruka} one{1 nova poruka} other{{messageCount} nove poruke}}.",
+  "information.departmentAndTask": "{departmentCount} odeljenja imaju {teamCount} timova koji rade na {projectCount} projekata sa {taskCount} otvorenih zadataka.",
+  "message.newTickets": "Imate {ticketCount, plural, =0{nema novih karata} one{1 nova karta} other{{ticketCount} nove karte}}.",
+  "message.documentView": "{userCount, plural, =0{nema korisnika} one{1 korisnik} other{{userCount} korisnika}} gleda {documentCount, plural, =0{nema dokumenata} one{1 dokument} other{{documentCount} dokumenata}}."
+}

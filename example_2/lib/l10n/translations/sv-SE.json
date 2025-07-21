@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Hej, {userName}!",
+  "hello.world": "Hej världen!",
+  "message.notification": "Du har {messageCount, plural, =0{inga nya meddelanden} one{1 nytt meddelande} other{{messageCount} nya meddelanden}}.",
+  "information.departmentAndTask": "{departmentCount} avdelningar har {teamCount} team som arbetar med {projectCount} projekt med {taskCount} öppna uppgifter.",
+  "message.newTickets": "Du har {ticketCount, plural, =0{inga nya biljetter} one{1 ny biljett} other{{ticketCount} nya biljetter}}.",
+  "message.documentView": "{userCount, plural, =0{inga användare} one{1 användare} other{{userCount} användare}} ser på {documentCount, plural, =0{inga dokument} one{1 dokument} other{{documentCount} dokument}}."
+}

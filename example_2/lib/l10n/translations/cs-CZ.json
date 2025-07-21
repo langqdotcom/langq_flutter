@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Ahoj, {userName}!",
+  "hello.world": "Ahoj světe!",
+  "message.notification": "Máte {messageCount, plural, =0{žádné nové zprávy} one{1 novou zprávu} few{2 nové zprávy} many{3-4 nové zprávy} other{{messageCount} nových zpráv}}.",
+  "information.departmentAndTask": "{departmentCount} oddělení má {teamCount} týmů, které pracují na {projectCount} projektech s {taskCount} otevřenými úkoly.",
+  "message.newTickets": "Máte {ticketCount, plural, =0{žádné nové jízdenky} one{1 novou jízdenku} other{{ticketCount} nové jízdenky}}.",
+  "message.documentView": "{userCount, plural, =0{žádní uživatelé} one{1 uživatel} other{{userCount} uživatelé}} sledují {documentCount, plural, =0{žádné dokumenty} one{1 dokument} other{{documentCount} dokumenty}}."
+}

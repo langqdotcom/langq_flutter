@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Γειά σου, {userName}!",
+  "hello.world": "Γειά σου Κόσμε!",
+  "message.notification": "Έχετε {messageCount, plural, =0{κανένα νέο μήνυμα} one{1 νέο μήνυμα} other{{messageCount} νέα μηνύματα}}.",
+  "information.departmentAndTask": "{departmentCount} τμήματα έχουν {teamCount} ομάδες που εργάζονται σε {projectCount} έργα με {taskCount} ανοιχτές εργασίες.",
+  "message.newTickets": "Έχετε {ticketCount, plural, =0{κανένα νέο εισιτήριο} one{1 νέο εισιτήριο} other{{ticketCount} νέα εισιτήρια}}.",
+  "message.documentView": "{userCount, plural, =0{κανένα χρήστη} one{1 χρήστης} other{{userCount} χρήστες}} παρακολουθούν {documentCount, plural, =0{κανένα έγγραφο} one{1 έγγραφο} other{{documentCount} έγγραφα}}."
+}

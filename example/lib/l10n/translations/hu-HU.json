@@ -1,0 +1,10 @@
+{
+  "welcome.message": "Helló, {userName}!",
+  "hello.world": "Helló Világ!",
+  "message.notification": "Önnek {messageCount, plural, =0{nincs új üzenete} one{1 új üzenete} other{{messageCount} új üzenete van}}.",
+  "information.departmentAndTask": "{departmentCount} osztály dolgozik, {teamCount} csapat dolgozik {projectCount} projekten, és {taskCount} nyitott feladat van.",
+  "message.newTickets": "Van {ticketCount, plural, =0{nincs új jegy} one{1 új jegy} other{{ticketCount} új jegy}}.",
+  "message.documentView": "{userCount, plural, =0{nincs felhasználó} one{1 felhasználó} other{{userCount} felhasználó}} nézi a {documentCount, plural, =0{nincs dokumentum} one{1 dokumentum} other{{documentCount} dokumentum}}.",
+  "message.overdue": "{invoiceCount, plural, =0{Nincsenek számlák} one{Van 1 számla} other{Van # számla}} összesen {amount}, ami lejárt.",
+  "message.order": "A megrendelésed {itemCount, plural, =0{nincs termék} one{1 termék} other{{itemCount} termék}} összesen {amount} értékben készült {date}."
+}

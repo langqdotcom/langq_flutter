@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Ciao, {userName}!",
+  "hello.world": "Ciao Mondo!",
+  "message.notification": "Hai {messageCount, plural, =0{nessun nuovo messaggio} one{1 nuovo messaggio} other{{messageCount} nuovi messaggi}}.",
+  "information.departmentAndTask": "{departmentCount} dipartimenti hanno {teamCount} team che lavorano a {projectCount} progetti con {taskCount} task aperti.",
+  "message.newTickets": "Hai {ticketCount, plural, =0{nessun biglietto nuovo} one{1 biglietto nuovo} other{{ticketCount} biglietti nuovi}}.",
+  "message.documentView": "{userCount, plural, =0{nessun utente} one{1 utente} other{{userCount} utenti}} sta visualizzando {documentCount, plural, =0{nessun documento} one{1 documento} other{{documentCount} documenti}}."
+}

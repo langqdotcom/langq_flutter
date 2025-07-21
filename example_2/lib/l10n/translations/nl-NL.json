@@ -1,0 +1,8 @@
+{
+  "welcome.message": "Hallo, {userName}!",
+  "hello.world": "Hallo Wereld!",
+  "message.notification": "Je hebt {messageCount, plural, =0{geen nieuwe berichten} one{1 nieuw bericht} other{{messageCount} nieuwe berichten}}.",
+  "information.departmentAndTask": "{departmentCount} afdelingen hebben {teamCount} teams die werken aan {projectCount} projecten met {taskCount} openstaande taken.",
+  "message.newTickets": "Je hebt {ticketCount, plural, =0{geen nieuwe tickets} one{1 nieuw ticket} other{{ticketCount} nieuwe tickets}}.",
+  "message.documentView": "{userCount, plural, =0{geen gebruikers} one{1 gebruiker} other{{userCount} gebruikers}} bekijken {documentCount, plural, =0{geen documenten} one{1 document} other{{documentCount} documenten}}."
+}

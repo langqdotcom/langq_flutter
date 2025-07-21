@@ -1,0 +1,10 @@
+{
+  "welcome.message": "Bonjour, {userName} !",
+  "hello.world": "Bonjour le monde !",
+  "message.notification": "Vous avez {messageCount, plural, =0{aucun nouveau message} one{1 nouveau message} other{{messageCount} nouveaux messages}}.",
+  "information.departmentAndTask": "{departmentCount} départements ont {teamCount} équipes travaillant sur {projectCount} projets avec {taskCount} tâches ouvertes.",
+  "message.newTickets": "Vous avez {ticketCount, plural, =0{aucune nouvelle ticket} one{1 nouveau ticket} other{{ticketCount} nouveaux tickets}}.",
+  "message.documentView": "{userCount, plural, =0{aucun utilisateur} one{1 utilisateur} other{{userCount} utilisateurs}} sont en train de consulter {documentCount, plural, =0{aucun document} one{1 document} other{{documentCount} documents}}.",
+  "message.overdue": "{invoiceCount, plural, =0{Il n'y a pas de factures} one{Il y a 1 facture} other{Il y a # factures}} totalisant {amount} qui sont en retard.",
+  "message.order": "Votre commande avec {itemCount, plural, =0{aucun article} one{1 article} other{{itemCount} articles}} d'une valeur de {amount} passée le {date}."
+}

@@ -1,0 +1,8 @@
+{
+  "welcome.message": "こんにちは、{userName}！",
+  "hello.world": "こんにちは世界！",
+  "message.notification": "あなたには{messageCount, plural, =0{新しいメッセージはありません} one{1件の新しいメッセージ} other{{messageCount}件の新しいメッセージ}}があります。",
+  "information.departmentAndTask": "{departmentCount} の部署が {teamCount} のチームで {projectCount} のプロジェクトに取り組み、{taskCount} のオープンなタスクがあります。",
+  "message.newTickets": "新しいチケットは{ticketCount, plural, =0{ありません} one{1枚} other{{ticketCount}枚あります}}。",
+  "message.documentView": "{userCount, plural, =0{ユーザーがいません} one{1人のユーザーが見ています} other{{userCount}人のユーザーが見ています}}が{documentCount, plural, =0{ドキュメントがありません} one{1つのドキュメントを見ています} other{{documentCount}個のドキュメントを見ています}}。"
+}

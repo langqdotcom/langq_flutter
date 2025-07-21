@@ -1,0 +1,13 @@
+import 'package:example_2/app_text.dart';
+import 'package:example_2/l10n/generated/langq_key.g.dart';
+import 'package:flutter/material.dart';
+import 'package:langq_localization/langq.dart';
+
+class SimpleText extends StatelessWidget {
+  const SimpleText({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Apptext(LangQKey.helloWorld.tr()));
+  }
+}

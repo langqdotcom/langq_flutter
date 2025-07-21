@@ -1,0 +1,10 @@
+{
+  "welcome.message": "Γειά σου, {userName}!",
+  "hello.world": "Γειά σου Κόσμε!",
+  "message.notification": "Έχετε {messageCount, plural, =0{κανένα νέο μήνυμα} one{1 νέο μήνυμα} other{{messageCount} νέα μηνύματα}}.",
+  "information.departmentAndTask": "{departmentCount} τμήματα έχουν {teamCount} ομάδες που εργάζονται σε {projectCount} έργα με {taskCount} ανοιχτές εργασίες.",
+  "message.newTickets": "Έχετε {ticketCount, plural, =0{κανένα νέο εισιτήριο} one{1 νέο εισιτήριο} other{{ticketCount} νέα εισιτήρια}}.",
+  "message.documentView": "{userCount, plural, =0{κανένα χρήστη} one{1 χρήστης} other{{userCount} χρήστες}} παρακολουθούν {documentCount, plural, =0{κανένα έγγραφο} one{1 έγγραφο} other{{documentCount} έγγραφα}}.",
+  "message.overdue": "{invoiceCount, plural, =0{Δεν υπάρχουν τιμολόγια} one{Υπάρχει 1 τιμολόγιο} other{Υπάρχουν # τιμολόγια}} συνολικού ποσού {amount} που έχουν λήξει.",
+  "message.order": "Η παραγγελία σας με {itemCount, plural, =0{χωρίς είδη} one{1 είδος} other{{itemCount} είδη}} αξίας {amount} πραγματοποιήθηκε στις {date}."
+}

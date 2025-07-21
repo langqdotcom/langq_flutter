@@ -1,0 +1,8 @@
+{
+  "welcome.message": "你好，{userName}！",
+  "hello.world": "你好，世界！",
+  "message.notification": "你有 {messageCount, plural, =0{沒有新消息} one{1 則新消息} other{{messageCount} 則新消息}}。",
+  "information.departmentAndTask": "{departmentCount} 個部門有 {teamCount} 個團隊正在處理 {projectCount} 個項目，當前有 {taskCount} 個任務開放。",
+  "message.newTickets": "您有{ticketCount, plural, =0{沒有新票} one{1張新票} other{{ticketCount}張新票}}。",
+  "message.documentView": "{userCount, plural, =0{沒有使用者} one{1位使用者} other{{userCount}位使用者}}正在查看{documentCount, plural, =0{沒有文件} one{1份文件} other{{documentCount}份文件}}。"
+}

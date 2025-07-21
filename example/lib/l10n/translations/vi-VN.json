@@ -1,0 +1,10 @@
+{
+  "welcome.message": "Chào {userName}!",
+  "hello.world": "Xin chào Thế giới!",
+  "message.notification": "Bạn có {messageCount, plural, =0{không có tin nhắn mới} one{1 tin nhắn mới} other{{messageCount} tin nhắn mới}}.",
+  "information.departmentAndTask": "Có {departmentCount} phòng ban với {teamCount} đội đang làm việc trên {projectCount} dự án và có {taskCount} nhiệm vụ đang mở.",
+  "message.newTickets": "Bạn có {ticketCount, plural, =0{không có vé mới} one{1 vé mới} other{{ticketCount} vé mới}}.",
+  "message.documentView": "{userCount, plural, =0{không có người dùng nào} one{1 người dùng} other{{userCount} người dùng}} đang xem {documentCount, plural, =0{không có tài liệu nào} one{1 tài liệu} other{{documentCount} tài liệu}}.",
+  "message.overdue": "{invoiceCount, plural, =0{Không có hóa đơn nào} one{Có 1 hóa đơn} other{Có # hóa đơn}} tổng cộng {amount} đã quá hạn.",
+  "message.order": "Đơn hàng của bạn với {itemCount, plural, =0{kông có mặt hàng nào} one{1 mặt hàng} other{{itemCount} mặt hàng}} trị giá {amount} được đặt vào {date}."
+}
