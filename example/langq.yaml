@@ -1,0 +1,7 @@
+
+exclude:
+  - "lib/l10n/generated/**"
+  - "lib/tabs/**"
+
+ignoreWords:
+  - "Lang Q"

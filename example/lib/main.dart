@@ -5,13 +5,21 @@ import 'package:example/tabs/date.dart';
 import 'package:example/tabs/multiple_placeholders.dart';
 import 'package:example/tabs/nested_plural.dart';
 import 'package:example/tabs/numbers.dart';
-import 'package:example/tabs/percentage.dart';
 import 'package:example/tabs/placeholder.dart';
 import 'package:example/tabs/plural.dart';
 import 'package:example/tabs/simple_text.dart';
 import 'package:example/tabs/time.dart';
 import 'package:flutter/material.dart';
 import 'package:langq_localization/langq.dart';
+import 'package:example/l10n/generated/langq_key.g.dart';
+
+class Orange {
+  static Count count = Count();
+}
+
+class Count {
+  int value = 0;
+}
 
 void main() async {
   await LangQ.init();
@@ -29,7 +37,7 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: value.localizationsDelegates,
           locale: value.currentLocale,
           supportedLocales: LangQLocales.supportedLocales,
-          title: 'Lang Q Demo',
+          title: LangQKey.exampleDemo(),
           home: const Home(),
         );
       },
@@ -53,62 +61,75 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
   }
 
-  final _tabs = [
-    'Simple',
-    'Placeholder',
-    'Plural',
-    'Multiple Placeholders',
-    'Nested Plural',
-    'Number',
-    'Date',
-    'Time',
-    'Currency',
-    'Percentage',
-  ];
+  // final _tabs = [
+  //   'Simple',
+  //   'Placeholder',
+  //   'Plural',
+  //   'Multiple Placeholders',
+  //   'Nested Plural',
+  //   'Number',
+  //   'Date',
+  //   'Time',
+  //   'Currency',
+  //   'Percentage',
+  // ];
+
+  int carsCount = 0;
+  String roadName = '';
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: _tabs.length,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text('Lang Q Demo'),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: GestureDetector(
-                onTap: () {
-                  LocalePicker.show(context);
-                },
-                child: Text(
-                  LangQ.currentLocale.toLanguageTag(),
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-          bottom: TabBar(
-            tabs: _tabs.map((e) => Tab(text: e)).toList(),
-            isScrollable: true,
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            SimpleText(),
-            PlaceholderText(),
-            Plural(),
-            MultiplePlaceholders(),
-            NestedPlural(),
-            NumbersFormat(),
-            DateFormat(),
-            TimeFormat(),
-            CurrencyFormat(),
-            PercentageFormat(),
-          ],
-        ),
+    return Scaffold(
+      body: Column(
+        children: [
+          Center(child: Text(LangQKey.helloWorld())),
+          Center(child: Text(LangQKey.roadCarscount(roadName: roadName, carsCount: carsCount))),
+        ],
       ),
     );
+    // return DefaultTabController(
+    //   length: _tabs.length,
+    //   child: Scaffold(
+    //     appBar: AppBar(
+    //       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+    //       title: Text('Lang Q Demo'),
+    //       actions: [
+    //         Padding(
+    //           padding: const EdgeInsets.symmetric(horizontal: 20.0),
+    //           child: GestureDetector(
+    //             onTap: () {
+    //               LocalePicker.show(context);
+    //             },
+    //             child: Text(
+    //               LangQ.currentLocale.toLanguageTag(),
+    //               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    //             ),
+    //           ),
+    //         ),
+    //       ],
+    //       bottom: TabBar(
+    //         tabs: _tabs.map((e) => Tab(text: e)).toList(),
+    //         isScrollable: true,
+    //       ),
+    //     ),
+    //     body: TabBarView(
+    //       children: [
+    //         SimpleText(),
+    //         PlaceholderText(),
+    //         Plural(),
+    //         MultiplePlaceholders(),
+    //         NestedPlural(),
+    //         NumbersFormat(),
+    //         DateFormat(),
+    //         TimeFormat(),
+    //         CurrencyFormat(),
+    //         // PercentageFormat(),
+
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
   }
 }
 

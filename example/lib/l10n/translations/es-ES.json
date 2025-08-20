@@ -1,10 +1,7 @@
 {
-  "welcome.message": "¡Hola, {userName}!",
-  "hello.world": "¡Hola Mundo!",
-  "message.notification": "Tienes {messageCount, plural, =0{ningún mensaje nuevo} one{1 mensaje nuevo} other{{messageCount} mensajes nuevos}}.",
-  "information.departmentAndTask": "{departmentCount} departamentos tienen {teamCount} equipos trabajando en {projectCount} proyectos con {taskCount} tareas abiertas.",
-  "message.newTickets": "Tienes {ticketCount, plural, =0{ningún ticket nuevo} one{1 ticket nuevo} other{{ticketCount} tickets nuevos}}.",
-  "message.documentView": "{userCount, plural, =0{ningún usuario} one{1 usuario} other{{userCount} usuarios}} está viendo {documentCount, plural, =0{ningún documento} one{1 documento} other{{documentCount} documentos}}.",
-  "message.overdue": "{invoiceCount, plural, =0{No hay facturas} one{Hay 1 factura} other{Hay # facturas}} por un total de {amount} que están vencidas.",
-  "message.order": "Su pedido con {itemCount, plural, =0{sin artículos} one{1 artículo} other{{itemCount} artículos}} por valor de {amount} realizado el {date}."
+  "helloWorld": "¡Hola Mundo!",
+  "road.carsCount": "{carsCount, plural, one {Hay {carsCount} coche} other {Hay {carsCount} coches}} en {roadName}",
+  "common.applyButton": "Aplicar",
+  "exampleDemo": "Demostración de Ejemplo",
+  "table.fruitCount": "{appleCount, plural, one {Hay {appleCount} manzana} other {Hay {appleCount} manzanas}} y {orangeCountValue, plural, one {{orangeCountValue} naranja} other {{orangeCountValue} naranjas}} en la mesa."
 }

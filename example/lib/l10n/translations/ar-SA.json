@@ -1,10 +1,7 @@
 {
-  "welcome.message": "مرحبًا، {userName}!",
-  "hello.world": "مرحبا بالعالم!",
-  "message.notification": "لديك {messageCount, plural, =0{لا توجد رسائل جديدة} one{رسالة جديدة واحدة} other{{messageCount} رسائل جديدة}}.",
-  "information.departmentAndTask": "{departmentCount} Departments لديهم {teamCount} فرق تعمل على {projectCount} مشاريع مع {taskCount} مهام مفتوحة.",
-  "message.newTickets": "لديك {ticketCount, plural, =0{لا تذاكر جديدة} one{تذكرة جديدة واحدة} other{{ticketCount} تذاكر جديدة}}.",
-  "message.documentView": "{userCount, plural, =0{لا مستخدمين} one{مستخدم واحد} other{{userCount} مستخدمين}} يعرضون {documentCount, plural, =0{لا مستندات} one{1 مستند} other{{documentCount} مستندات}}.",
-  "message.overdue": "{invoiceCount, plural, =0{لا توجد فواتير} one{يوجد فاتورة واحدة} two{يوجد فاتورتان} few{يوجد # فواتير} many{يوجد # فاتورة} other{يوجد # فواتير}} بإجمالي {amount} مستحقة.",
-  "message.order": "طلبك مع {itemCount, plural, =0{لا توجد عناصر} one{1 عنصر} two{عنصران} few{عدة عناصر} many{عدد من العناصر} other{{itemCount} عناصر}} بقيمة {amount} تم تقديمه في {date}."
+  "helloWorld": "مرحبا بالعالم!",
+  "road.carsCount": "{carsCount, plural, zero {لا توجد سيارات} one {توجد سيارة واحدة} two {توجد سيارتان} few {توجد {carsCount} سيارات} many {توجد {carsCount} سيارة} other {توجد {carsCount} سيارة}} على {roadName}",
+  "common.applyButton": "تطبيق",
+  "exampleDemo": "عرض توضيحي",
+  "table.fruitCount": "{appleCount, plural, one {يوجد {appleCount} تفاحة} two {يوجد {appleCount} تفاحتان} few {يوجد {appleCount} تفاحات} many {يوجد {appleCount} تفاحات} other {يوجد {appleCount} تفاحات}} و {orangeCountValue, plural, one {{orangeCountValue} برتقالة} two {{orangeCountValue} برتقالتان} few {{orangeCountValue} برتقالات} many {{orangeCountValue} برتقالات} other {{orangeCountValue} برتقالة}} على الطاولة."
 }

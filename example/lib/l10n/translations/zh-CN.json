@@ -1,10 +1,7 @@
 {
-  "welcome.message": "你好，{userName}！",
-  "hello.world": "你好，世界！",
-  "message.notification": "你有 {messageCount, plural, =0{没有新消息} one{1 条新消息} other{{messageCount} 条新消息}}。",
-  "information.departmentAndTask": "{departmentCount} 个部门有 {teamCount} 个团队正在处理 {projectCount} 个项目，当前有 {taskCount} 个任务开放。",
-  "message.newTickets": "您有{ticketCount, plural, =0{没有新票} one{1张新票} other{{ticketCount}张新票}}。",
-  "message.documentView": "{userCount, plural, =0{没有用户} one{1个用户} other{{userCount}个用户}}正在查看{documentCount, plural, =0{没有文件} one{1个文件} other{{documentCount}个文件}}。",
-  "message.overdue": "{invoiceCount, plural, =0{没有发票} one{有1张发票} other{有#张发票}} 总计 {amount} 已逾期。",
-  "message.order": "您的订单中有{itemCount, plural, =0{没有商品} one{1件商品} other{{itemCount}件商品}}，价值{amount}，下单时间为{date}。"
+  "helloWorld": "你好世界!",
+  "road.carsCount": "{carsCount, plural, one {在 {roadName} 上有 {carsCount} 辆车} other {在 {roadName} 上有 {carsCount} 辆车}}",
+  "common.applyButton": "应用",
+  "exampleDemo": "示例演示",
+  "table.fruitCount": "桌上有{appleCount, plural, other {{appleCount} 个苹果}}和{orangeCountValue, plural, other {{orangeCountValue} 个橙子}}。"
 }

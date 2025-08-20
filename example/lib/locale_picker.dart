@@ -2,6 +2,7 @@ import 'package:example/l10n/generated/langq_locales.g.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:langq_localization/langq.dart';
+import 'package:example/l10n/generated/langq_key.g.dart';
 
 class LocalePicker extends StatefulWidget {
   const LocalePicker({super.key});
@@ -69,7 +70,7 @@ class _LocalePickerState extends State<LocalePicker> {
             color: const Color.fromARGB(255, 109, 85, 114),
             padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
             child: Text(
-              'Apply',
+              LangQKey.commonApplybutton(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,

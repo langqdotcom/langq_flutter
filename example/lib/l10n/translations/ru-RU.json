@@ -1,10 +1,7 @@
 {
-  "welcome.message": "Здравствуйте, {userName}!",
-  "hello.world": "Привет, мир!",
-  "message.notification": "У вас {messageCount, plural, =0{нет новых сообщений} one{1 новое сообщение} other{{messageCount} новых сообщений}}.",
-  "information.departmentAndTask": "{departmentCount} отделов имеют {teamCount} команд, работающих над {projectCount} проектами с {taskCount} открытыми задачами.",
-  "message.newTickets": "У вас {ticketCount, plural, =0{нет новых билетов} one{1 новый билет} other{{ticketCount} новых билета}}.",
-  "message.documentView": "{userCount, plural, =0{нет пользователей} one{1 пользователь} few{# пользователя} many{# пользователей} other{{userCount} пользователя}} смотрят {documentCount, plural, =0{нет документов} one{1 документ} few{# документа} many{# документов} other{{documentCount} документов}}.",
-  "message.overdue": "{invoiceCount, plural, one{Счетов: 1} few{Счетов: #} many{Счетов: #} other{Счетов: #}} на сумму {amount}, просрочены.",
-  "message.order": "Ваш заказ с {itemCount, plural, one{1 товар} few{# товара} many{# товаров} other{{itemCount} товаров}} на сумму {amount}, размещен {date}."
+  "helloWorld": "Привет мир!",
+  "road.carsCount": "{carsCount, plural, one {На {roadName} находится {carsCount} машина} few {На {roadName} находится {carsCount} машины} many {На {roadName} находится {carsCount} машин} other {На {roadName} находится {carsCount} машин}}",
+  "common.applyButton": "Применить",
+  "exampleDemo": "Пример Демо",
+  "table.fruitCount": "{appleCount, plural, one {На столе {appleCount} яблоко} few {На столе {appleCount} яблока} many {На столе {appleCount} яблок} other {На столе {appleCount} яблок}} и {orangeCountValue, plural, one {{orangeCountValue} апельсин} few {{orangeCountValue} апельсина} many {{orangeCountValue} апельсинов} other {{orangeCountValue} апельсинов}}."
 }
