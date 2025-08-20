@@ -574,8 +574,8 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
         // This is a named parameter like title:, child:, etc.
         parts.add(current.name.label.name);
       } else if (current is InstanceCreationExpression) {
-        final typeName = current.constructorName.type.name2?.lexeme;
-        if (typeName != null && _isRelevantWidget(typeName)) {
+        final typeName = current.constructorName.type.name2.lexeme;
+        if (_isRelevantWidget(typeName)) {
           parts.add(typeName);
         }
       }

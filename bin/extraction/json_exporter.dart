@@ -3,11 +3,6 @@ import 'dart:io';
 import 'dart:convert';
 import 'models.dart';
 
-// lib/src/extraction/json_exporter.dart
-import 'dart:io';
-import 'dart:convert';
-import 'models.dart';
-
 class JsonExporter {
   static const String _langqDir = '.langq';
   static const String _extractedFile = 'extracted_strings.json';

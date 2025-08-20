@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:args/args.dart';
-import 'package:dotenv/dotenv.dart';
 import 'src/langq_pull.dart';
 import 'src/utils.dart';
+import 'src/api_key_service.dart';
 
 void _printUsage() {
   stdout.write('Usage: langq <command> [arguments]\n');
@@ -28,9 +28,6 @@ void main(List<String> arguments) async {
 }
 
 Future<void> handlePull(ArgResults argResults) async {
-  var dotenv = DotEnv();
-  dotenv.load();
-
   if (argResults.arguments.isNotEmpty) {
     if (argResults['key'] == null && argResults['strings'] == null) {
       stdout.write('${CommandLineColor.red}Invalid Command\n');
@@ -41,7 +38,7 @@ Future<void> handlePull(ArgResults argResults) async {
   }
 
   bool generateStrings = (argResults['strings'] as bool?) ?? false;
-  String? apiKey = argResults['key'] ?? dotenv['LANGQ_API_KEY'];
+  String? apiKey = argResults['key'] ?? ApiKeyService.getApiKey();
 
   if (apiKey == null) {
     stdout.write('Please enter your API key: ');

@@ -311,26 +311,26 @@ class CodeReplacer {
     return camelCase;
   }
 
-  String _extractOriginalString(String content, ExtractionData extraction) {
-    if (extraction.startOffset >= content.length ||
-        extraction.endOffset > content.length ||
-        extraction.startOffset < 0) {
-      return '';
-    }
+  // String _extractOriginalString(String content, ExtractionData extraction) {
+  //   if (extraction.startOffset >= content.length ||
+  //       extraction.endOffset > content.length ||
+  //       extraction.startOffset < 0) {
+  //     return '';
+  //   }
 
-    return content.substring(extraction.startOffset, extraction.endOffset);
-  }
+  //   return content.substring(extraction.startOffset, extraction.endOffset);
+  // }
 
-  String _replaceAtOffset(
-    String content,
-    ExtractionData extraction,
-    String replacement,
-  ) {
-    final before = content.substring(0, extraction.startOffset);
-    final after = content.substring(extraction.endOffset);
+  // String _replaceAtOffset(
+  //   String content,
+  //   ExtractionData extraction,
+  //   String replacement,
+  // ) {
+  //   final before = content.substring(0, extraction.startOffset);
+  //   final after = content.substring(extraction.endOffset);
 
-    return before + replacement + after;
-  }
+  //   return before + replacement + after;
+  // }
 
   Future<String> _addImportIfNeeded(String content) async {
     // Check if import already exists

@@ -2,10 +2,9 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:args/command_runner.dart';
-import 'package:dotenv/dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'extraction/json_exporter.dart';
-import 'extraction/extraction_config.dart';
+import 'src/api_key_service.dart';
 
 void main(List<String> args) async {
   await PushCommand().run();
@@ -19,19 +18,19 @@ class PushCommand extends Command<void> {
   String get description => 'Push extracted strings to Lang Q for translation';
 
   PushCommand() {
-    argParser
-      ..addFlag(
-        'force',
-        abbr: 'f',
-        help: 'Force push even if no changes detected',
-        defaultsTo: false,
-      )
-      ..addFlag(
-        'dry-run',
-        abbr: 'd',
-        help: 'Show what would be pushed without actually pushing',
-        defaultsTo: false,
-      );
+    // argParser
+    //   ..addFlag(
+    //     'force',
+    //     abbr: 'f',
+    //     help: 'Force push even if no changes detected',
+    //     defaultsTo: false,
+    //   )
+    //   ..addFlag(
+    //     'dry-run',
+    //     abbr: 'd',
+    //     help: 'Show what would be pushed without actually pushing',
+    //     defaultsTo: false,
+    //   );
   }
 
   @override
@@ -62,22 +61,21 @@ class PushCommand extends Command<void> {
       print('📊 Found ${strings.length} strings to push');
 
       // Load config for API key
-      final config = await ExtractionConfig.load();
-      final apiKey = await _getApiKey(config);
+      final apiKey = ApiKeyService.getApiKey();
 
-      if (argResults?['dry-run'] == true) {
-        await _showDryRunInfo(strings, apiKey);
-        return;
-      }
+      // if (argResults?['dry-run'] == true) {
+      //   await _showDryRunInfo(strings, apiKey);
+      //   return;
+      // }
 
       // Check for existing mappings to avoid duplicates
       final existingMappings = await _loadExistingMappings(projectPath);
       final newStrings = _filterNewStrings(strings, existingMappings);
 
-      if (newStrings.isEmpty && !(argResults?['force'] == true)) {
-        print('✅ All strings already pushed. Use --force to push again.');
-        return;
-      }
+      // if (newStrings.isEmpty && !(argResults?['force'] == true)) {
+      //   print('✅ All strings already pushed. Use --force to push again.');
+      //   return;
+      // }
 
       print('🚀 Pushing ${newStrings.length} new strings...');
 
@@ -104,34 +102,6 @@ class PushCommand extends Command<void> {
   Future<Map<String, dynamic>> _loadExtractedStrings(File file) async {
     final content = await file.readAsString();
     return jsonDecode(content) as Map<String, dynamic>;
-  }
-
-  Future<String> _getApiKey(ExtractionConfig config) async {
-    // // Try config file first
-    // if (config.apiKey.isNotEmpty) {
-    //   return config.apiKey;
-    // }
-
-    // Try environment variable
-    String? apiKey = Platform.environment['LANGQ_API_KEY'];
-    if (apiKey != null && apiKey.isNotEmpty) {
-      return apiKey;
-    }
-
-    if (apiKey == null) {
-      var dotenv = DotEnv();
-      dotenv.load();
-
-      apiKey = dotenv['LANGQ_API_KEY'];
-
-      if (apiKey != null && apiKey.isNotEmpty) {
-        return apiKey;
-      }
-    }
-
-    throw Exception(
-      'API key not found. Set it in .env LANGQ_API_KEY environment variable',
-    );
   }
 
   Future<Map<String, dynamic>> _loadExistingMappings(String projectPath) async {
@@ -168,30 +138,30 @@ class PushCommand extends Command<void> {
     return newStrings;
   }
 
-  Future<void> _showDryRunInfo(List<dynamic> strings, String apiKey) async {
-    print('\n📋 Dry run - would push to api.langq.com/push:');
-    print('🔑 API Key: ${apiKey.substring(0, 8)}...');
-    print('📊 Payload:');
+  // Future<void> _showDryRunInfo(List<dynamic> strings, String apiKey) async {
+  //   print('\n📋 Dry run - would push to api.langq.com/push:');
+  //   print('🔑 API Key: ${apiKey.substring(0, 8)}...');
+  //   print('📊 Payload:');
 
-    final sampleStrings =
-        strings.take(3).map((s) {
-          final string = s as Map<String, dynamic>;
-          return {
-            'id': string['id'],
-            'value': string['value'],
-            'icu_format': string['icu_format'],
-            'placeholders': string['placeholders'],
-          };
-        }).toList();
+  //   final sampleStrings =
+  //       strings.take(3).map((s) {
+  //         final string = s as Map<String, dynamic>;
+  //         return {
+  //           'id': string['id'],
+  //           'value': string['value'],
+  //           'icu_format': string['icu_format'],
+  //           'placeholders': string['placeholders'],
+  //         };
+  //       }).toList();
 
-    print(
-      const JsonEncoder.withIndent(
-        '  ',
-      ).convert({'strings': sampleStrings, 'total_count': strings.length}),
-    );
+  //   print(
+  //     const JsonEncoder.withIndent(
+  //       '  ',
+  //     ).convert({'strings': sampleStrings, 'total_count': strings.length}),
+  //   );
 
-    print('\n💡 Run without --dry-run to actually push');
-  }
+  //   print('\n💡 Run without --dry-run to actually push');
+  // }
 
   Future<Map<String, dynamic>> _pushToApi(
     List<Map<String, dynamic>> strings,

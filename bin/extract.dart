@@ -18,18 +18,18 @@ class ExtractCommand extends Command<void> {
       'Extract hardcoded strings and save to JSON for review';
 
   ExtractCommand() {
-    argParser
-      ..addOption(
-        'output',
-        abbr: 'o',
-        help: 'Output JSON file path',
-        defaultsTo: 'langq_extracted_strings.json',
-      )
-      ..addFlag(
-        'open',
-        help: 'Open the JSON file after creation',
-        defaultsTo: false,
-      );
+    // argParser
+    //   ..addOption(
+    //     'output',
+    //     abbr: 'o',
+    //     help: 'Output JSON file path',
+    //     defaultsTo: 'langq_extracted_strings.json',
+    //   )
+    //   ..addFlag(
+    //     'open',
+    //     help: 'Open the JSON file after creation',
+    //     defaultsTo: false,
+    //   );
   }
 
   @override
@@ -71,10 +71,10 @@ class ExtractCommand extends Command<void> {
       print('  Without placeholders: ${strings.length - withPlaceholders}');
 
       // Export to JSON
-      final outputPath = argResults?['output'] as String?;
+      // final outputPath = argResults?['output'] as String?;
       final jsonPath = await JsonExporter.exportToJson(
         strings,
-        projectPath: outputPath,
+        // projectPath: outputPath,
       );
 
       print('\n✅ Extraction complete!');
@@ -86,26 +86,26 @@ class ExtractCommand extends Command<void> {
       );
 
       // Optionally open the file
-      if (argResults?['open'] == true) {
-        await _openFile(jsonPath);
-      }
+      // if (argResults?['open'] == true) {
+      //   await _openFile(jsonPath);
+      // }
     } catch (e) {
       print('❌ Error: $e');
       exit(1);
     }
   }
 
-  Future<void> _openFile(String path) async {
-    try {
-      if (Platform.isWindows) {
-        await Process.run('start', [path], runInShell: true);
-      } else if (Platform.isMacOS) {
-        await Process.run('open', [path]);
-      } else if (Platform.isLinux) {
-        await Process.run('xdg-open', [path]);
-      }
-    } catch (e) {
-      print('Could not open file automatically: $e');
-    }
-  }
+  // Future<void> _openFile(String path) async {
+  //   try {
+  //     if (Platform.isWindows) {
+  //       await Process.run('start', [path], runInShell: true);
+  //     } else if (Platform.isMacOS) {
+  //       await Process.run('open', [path]);
+  //     } else if (Platform.isLinux) {
+  //       await Process.run('xdg-open', [path]);
+  //     }
+  //   } catch (e) {
+  //     print('Could not open file automatically: $e');
+  //   }
+  // }
 }
