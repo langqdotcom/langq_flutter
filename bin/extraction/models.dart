@@ -13,7 +13,12 @@ class ExtractedString {
   final int startOffset;
   final int endOffset;
   String? suggestedKey;
-  String? id; // New: unique identifier for tracking
+  String? id;
+  final String widgetHierarchy;
+  final String parentClass;
+  final String parentMethod;
+  final String semanticContext;
+  String? userContext;
 
   ExtractedString({
     required this.value,
@@ -28,6 +33,11 @@ class ExtractedString {
     required this.endOffset,
     this.suggestedKey,
     this.id,
+    required this.widgetHierarchy,
+    required this.parentClass,
+    required this.parentMethod,
+    required this.semanticContext,
+    this.userContext,
   });
 
   bool get hasPlaceholders => placeholders.isNotEmpty;
@@ -63,6 +73,11 @@ class ExtractedString {
       'suggested_key': suggestedKey,
       'has_placeholders': hasPlaceholders,
       'code_snippet': _getCodeSnippet(),
+      'widget_hierarchy': widgetHierarchy,
+      'parent_class': parentClass,
+      'parent_method': parentMethod,
+      'semantic_context': semanticContext,
+      'user_context': userContext,
     };
   }
 

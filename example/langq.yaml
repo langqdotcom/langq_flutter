@@ -1,7 +1,13 @@
+# This file is auto-generated. Modify as needed.
+extraction:
+  exclude:
+    # These are always excluded (not configurable)
+    - "lib/l10n/generated/**"
+    - "lib/tabs/**"
+    
+    # Recommended exclusions (remove lines to include)
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
 
-exclude:
-  - "lib/l10n/generated/**"
-  - "lib/tabs/**"
 
-ignoreWords:
-  - "Lang Q"
+

@@ -75,7 +75,7 @@ class TranslateCommand extends Command<void> {
 
       // Step 2: Push
       print('\n📤 Step 2: Pushing strings to Lang Q...');
-      final pushResponse = await _pushStrings(strings, config);
+      await _pushStrings(strings, config);
 
       // Step 3: Pull
       print('\n📥 Step 3: Pulling translations and generating functions...');

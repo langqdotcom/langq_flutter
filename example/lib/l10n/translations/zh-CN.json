@@ -1,6 +1,9 @@
 {
   "helloWorld": "你好世界!",
   "road.carsCount": "{carsCount, plural, one {在 {roadName} 上有 {carsCount} 辆车} other {在 {roadName} 上有 {carsCount} 辆车}}",
+  "common.john": "John",
+  "common.developer": "开发者",
+  "helloMessage": "你好 {userFirst}",
   "common.applyButton": "应用",
   "exampleDemo": "示例演示",
   "table.fruitCount": "桌上有{appleCount, plural, other {{appleCount} 个苹果}}和{orangeCountValue, plural, other {{orangeCountValue} 个橙子}}。"

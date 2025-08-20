@@ -61,6 +61,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     super.initState();
   }
 
+  // Hello World!
+  List<String> user = [
+    //
+    LangQKey.commonJohn(),
+    // @langq-ignore
+    'David ',
+  ];
+
+  String account = LangQKey.commonDeveloper();
+
   // final _tabs = [
   //   'Simple',
   //   'Placeholder',
@@ -82,8 +92,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Scaffold(
       body: Column(
         children: [
-          Center(child: Text(LangQKey.helloWorld())),
-          Center(child: Text(LangQKey.roadCarscount(roadName: roadName, carsCount: carsCount))),
+          Center(
+            child: Text(
+              LangQKey.roadCarscount(roadName: roadName, carsCount: carsCount),
+            ),
+          ),
+
+          Center(child: Text(LangQKey.helloMessage(userFirst: user.first))),
         ],
       ),
     );

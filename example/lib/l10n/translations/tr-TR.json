@@ -1,6 +1,9 @@
 {
   "helloWorld": "Merhaba Dünya!",
   "road.carsCount": "{carsCount, plural, one {{carsCount} araba} other {{carsCount} araba}} {roadName} üzerinde bulunmaktadır",
+  "common.john": "John",
+  "common.developer": "Geliştirici",
+  "helloMessage": "Merhaba {userFirst}",
   "common.applyButton": "Uygula",
   "exampleDemo": "Örnek Demo",
   "table.fruitCount": "{appleCount, plural, one {Masada {appleCount} elma var} other {Masada {appleCount} elma var}} ve {orangeCountValue, plural, one {{orangeCountValue} portakal} other {{orangeCountValue} portakal}} var."

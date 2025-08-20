@@ -1,6 +1,9 @@
 {
   "helloWorld": "مرحبا بالعالم!",
   "road.carsCount": "{carsCount, plural, zero {لا توجد سيارات} one {توجد سيارة واحدة} two {توجد سيارتان} few {توجد {carsCount} سيارات} many {توجد {carsCount} سيارة} other {توجد {carsCount} سيارة}} على {roadName}",
+  "common.john": "John",
+  "common.developer": "مطور",
+  "helloMessage": "مرحباً {userFirst}",
   "common.applyButton": "تطبيق",
   "exampleDemo": "عرض توضيحي",
   "table.fruitCount": "{appleCount, plural, one {يوجد {appleCount} تفاحة} two {يوجد {appleCount} تفاحتان} few {يوجد {appleCount} تفاحات} many {يوجد {appleCount} تفاحات} other {يوجد {appleCount} تفاحات}} و {orangeCountValue, plural, one {{orangeCountValue} برتقالة} two {{orangeCountValue} برتقالتان} few {{orangeCountValue} برتقالات} many {{orangeCountValue} برتقالات} other {{orangeCountValue} برتقالة}} على الطاولة."

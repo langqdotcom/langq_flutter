@@ -11,6 +11,11 @@ class LangQKey {
     return LangQ.text('common.applyButton');
   }
 
+  /// Base: Developer
+  static String commonDeveloper() {
+    return LangQ.text('common.developer');
+  }
+
   /// Base: Example Demo
   static String exampleDemo() {
     return LangQ.text('exampleDemo');
@@ -19,6 +24,16 @@ class LangQKey {
   /// Base: Hello World!
   static String helloWorld() {
     return LangQ.text('helloWorld');
+  }
+
+  /// Base: Hello {userFirst}
+  static String helloMessage({required String userFirst}) {
+    return LangQ.text('helloMessage', args: {'userFirst': userFirst});
+  }
+
+  /// Base: John
+  static String commonJohn() {
+    return LangQ.text('common.john');
   }
 
   /// Base: {appleCount, plural, one {There is {appleCount} apple} other {There are {appleCount} apples}} and {orangeCountValue, plural, one {{orangeCountValue} orange} other {{orangeCountValue} oranges}} on the table.

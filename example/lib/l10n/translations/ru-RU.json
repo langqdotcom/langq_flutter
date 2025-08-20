@@ -1,6 +1,9 @@
 {
   "helloWorld": "Привет мир!",
   "road.carsCount": "{carsCount, plural, one {На {roadName} находится {carsCount} машина} few {На {roadName} находится {carsCount} машины} many {На {roadName} находится {carsCount} машин} other {На {roadName} находится {carsCount} машин}}",
+  "common.john": "John",
+  "common.developer": "Разработчик",
+  "helloMessage": "Привет {userFirst}",
   "common.applyButton": "Применить",
   "exampleDemo": "Пример Демо",
   "table.fruitCount": "{appleCount, plural, one {На столе {appleCount} яблоко} few {На столе {appleCount} яблока} many {На столе {appleCount} яблок} other {На столе {appleCount} яблок}} и {orangeCountValue, plural, one {{orangeCountValue} апельсин} few {{orangeCountValue} апельсина} many {{orangeCountValue} апельсинов} other {{orangeCountValue} апельсинов}}."

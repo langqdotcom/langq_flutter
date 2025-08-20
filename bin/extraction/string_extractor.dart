@@ -81,11 +81,30 @@ class StringExtractor {
     final content = await file.readAsString();
     final result = parseString(content: content, throwIfDiagnostics: false);
 
+    // Check for ignore markers in the file
+    final lines = content.split('\n');
+    final ignoredLines = <int>{};
+
+    for (int i = 0; i < lines.length; i++) {
+      final line = lines[i].trim();
+
+      // Check if this line contains @langq-ignore
+      if (line.contains('@langq-ignore')) {
+        // Ignore the next line (if it exists)
+        if (i + 1 < lines.length) {
+          ignoredLines.add(
+            i + 2,
+          ); // Line numbers are 1-based, next line is i+1, so i+2
+        }
+      }
+    }
+
     final visitor = _StringExtractionVisitor(
       filePath: file.path,
       source: content,
       config: config,
       seenStrings: _seenStrings,
+      ignoredLines: ignoredLines,
     );
 
     result.unit.accept(visitor);
@@ -99,18 +118,29 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
   final ExtractionConfig config;
   final Set<String> seenStrings;
   final List<ExtractedString> extractedStrings = [];
+  final Set<int> ignoredLines;
 
   _StringExtractionVisitor({
     required this.filePath,
     required this.source,
     required this.config,
     required this.seenStrings,
+    required this.ignoredLines,
   });
 
   @override
   void visitSimpleStringLiteral(SimpleStringLiteral node) {
     final value = node.stringValue;
+    final location = _getSourceLocation(node);
+
     if (value == null) {
+      super.visitSimpleStringLiteral(node);
+      return;
+    }
+
+    // Check if this line should be ignored
+    if (ignoredLines.contains(location.lineNumber)) {
+      print('🚫 Ignored: "${value}" at line ${location.lineNumber}');
       super.visitSimpleStringLiteral(node);
       return;
     }
@@ -138,7 +168,6 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     final placeholderMappings = <String, String>{}; // Empty for simple strings
 
     // Get location
-    final location = _getSourceLocation(node);
 
     // Get parent context
     final parentContext = _getParentContext(node);
@@ -154,6 +183,10 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
       parentContext: parentContext,
       startOffset: node.offset,
       endOffset: node.end,
+      widgetHierarchy: _getWidgetHierarchy(node), // NEW
+      parentClass: _getParentClass(node), // NEW
+      parentMethod: _getParentMethod(node), // NEW
+      semanticContext: _inferSemanticContext(node), // NEW
     );
 
     seenStrings.add(value); // Mark as seen
@@ -184,6 +217,15 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
   @override
   void visitStringInterpolation(StringInterpolation node) {
     final value = _extractStringValue(node);
+    // Get location
+    final location = _getSourceLocation(node);
+
+    // Check if this line should be ignored
+    if (ignoredLines.contains(location.lineNumber)) {
+      print('🚫 Ignored: "${value}" at line ${location.lineNumber}');
+      super.visitStringInterpolation(node);
+      return;
+    }
 
     // Skip if already seen (prevent duplicates)
     if (seenStrings.contains(value)) {
@@ -207,9 +249,6 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     final placeholders = _extractPlaceholdersFromInterpolation(node);
     final placeholderMappings = _createPlaceholderMappings(node);
 
-    // Get location
-    final location = _getSourceLocation(node);
-
     // Get parent context
     final parentContext = _getParentContext(node);
 
@@ -225,6 +264,10 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
       parentContext: parentContext,
       startOffset: node.offset,
       endOffset: node.end,
+      widgetHierarchy: _getWidgetHierarchy(node), // NEW
+      parentClass: _getParentClass(node), // NEW
+      parentMethod: _getParentMethod(node), // NEW
+      semanticContext: _inferSemanticContext(node), // NEW
     );
 
     seenStrings.add(value); // Mark as seen
@@ -355,5 +398,76 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     }
 
     return 'unknown';
+  }
+
+  String _getWidgetHierarchy(AstNode node) {
+    final hierarchy = <String>[];
+    AstNode? current = node.parent;
+
+    while (current != null && hierarchy.length < 5) {
+      if (current is InstanceCreationExpression) {
+        final typeName = current.constructorName.type.name2.lexeme;
+        hierarchy.add(typeName);
+      }
+      current = current.parent;
+    }
+
+    return hierarchy.reversed.join(' > ');
+  }
+
+  String _getParentClass(AstNode node) {
+    AstNode? current = node.parent;
+
+    while (current != null) {
+      if (current is ClassDeclaration) {
+        return current.name.lexeme;
+      }
+      current = current.parent;
+    }
+
+    return 'unknown';
+  }
+
+  String _getParentMethod(AstNode node) {
+    AstNode? current = node.parent;
+
+    while (current != null) {
+      if (current is MethodDeclaration) {
+        return current.name.lexeme;
+      }
+      current = current.parent;
+    }
+
+    return 'unknown';
+  }
+
+  String _inferSemanticContext(AstNode node) {
+    final hierarchy = _getWidgetHierarchy(node).toLowerCase();
+    final parentContext = _getParentContext(node).toLowerCase();
+
+    // Infer semantic meaning based on context
+    if (hierarchy.contains('appbar') && parentContext.contains('title')) {
+      return 'app_bar_title';
+    }
+    if (hierarchy.contains('appbar')) {
+      return 'app_bar_content';
+    }
+    if (parentContext.contains('button') || hierarchy.contains('button')) {
+      return 'button_text';
+    }
+    if (parentContext.contains('tooltip')) {
+      return 'tooltip_text';
+    }
+    if (parentContext.contains('dialog')) {
+      return 'dialog_content';
+    }
+    if (parentContext.contains('snackbar')) {
+      return 'snackbar_message';
+    }
+    if (parentContext.contains('textfield') || parentContext.contains('hint')) {
+      return 'input_text';
+    }
+
+    return 'general_text';
   }
 }
