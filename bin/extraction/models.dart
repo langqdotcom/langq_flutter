@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'package:path/path.dart' as path;
+
 import 'file_extraction_result.dart';
 
 // lib/src/extraction/models.dart
@@ -6,6 +9,7 @@ class ExtractedString {
   final String originalRawValue;
   final List<String> placeholders;
   final Map<String, String> placeholderMappings;
+  final Map<String, String> placeholderTypes;
   final String filePath;
   final int line;
   final int column;
@@ -25,6 +29,7 @@ class ExtractedString {
     required this.originalRawValue,
     required this.placeholders,
     required this.placeholderMappings,
+    required this.placeholderTypes,
     required this.filePath,
     required this.line,
     required this.column,
@@ -58,26 +63,22 @@ class ExtractedString {
   Map<String, dynamic> toJson() {
     return {
       'id': id,
-      'value': value,
-      'original_raw_value': originalRawValue,
+      'value': originalRawValue, // Raw value as requested
       'icu_format': icuFormat,
       'placeholders': placeholders,
       'placeholder_mappings': placeholderMappings,
-      'file_path': filePath,
+      'placeholder_types': placeholderTypes, // NEW
+      'file_path': _getProjectRelativePath(), // NEW
       'file_name': filePath.split('/').last,
       'line': line,
       'column': column,
-      'parent_context': parentContext,
       'start_offset': startOffset,
       'end_offset': endOffset,
-      'suggested_key': suggestedKey,
-      'has_placeholders': hasPlaceholders,
       'code_snippet': _getCodeSnippet(),
       'widget_hierarchy': widgetHierarchy,
-      'parent_class': parentClass,
-      'parent_method': parentMethod,
-      'semantic_context': semanticContext,
-      'user_context': userContext,
+      'semantic_context': semanticContext, // Only if useful
+      'ui_purpose': _inferUIPurpose(),
+      'user_facing_type': _getUserFacingType(),
     };
   }
 
@@ -87,6 +88,92 @@ class ExtractedString {
 
   @override
   String toString() => 'ExtractedString("$value", $parentContext, line $line)';
+
+  String _getProjectRelativePath() {
+    final currentDir = Directory.current.path;
+
+    // If the file path starts with current directory, make it relative
+    if (filePath.startsWith(currentDir)) {
+      final relativePath = path.relative(filePath, from: currentDir);
+      return relativePath;
+    }
+
+    // If not, try to find project root markers
+    final segments = filePath.split('/');
+
+    // Look for common project structure indicators
+    for (int i = segments.length - 1; i >= 0; i--) {
+      final segment = segments[i];
+
+      // Check if this segment indicates project root level
+      if (segment == 'lib' ||
+          segment == 'test' ||
+          segment == 'web' ||
+          segment == 'android' ||
+          segment == 'ios') {
+        // Go back one more level to include project name
+        final projectRootIndex = i > 0 ? i - 1 : i;
+        return segments.sublist(projectRootIndex).join('/');
+      }
+    }
+
+    // Fallback: return the filename if we can't determine project structure
+    return path.basename(filePath);
+  }
+
+  String _inferUIPurpose() {
+    final hierarchy = widgetHierarchy.toLowerCase();
+    final parent = parentContext.toLowerCase();
+
+    if (hierarchy.contains('appbar') || parent.contains('title')) {
+      return 'navigation_title';
+    }
+    if (parent.contains('button') || hierarchy.contains('button')) {
+      return 'action_button';
+    }
+    if (parent.contains('dialog') || hierarchy.contains('dialog')) {
+      return 'modal_content';
+    }
+    if (parent.contains('textfield') || parent.contains('hint')) {
+      return 'form_input';
+    }
+    if (parent.contains('tooltip')) {
+      return 'help_text';
+    }
+    if (parent.contains('snackbar') || hierarchy.contains('snackbar')) {
+      return 'notification';
+    }
+    if (hierarchy.contains('drawer') || hierarchy.contains('navigation')) {
+      return 'navigation_item';
+    }
+
+    return 'display_text';
+  }
+
+  String _getUserFacingType() {
+    if (hasPlaceholders) {
+      return 'dynamic_message';
+    }
+
+    final purpose = _inferUIPurpose();
+    switch (purpose) {
+      case 'action_button':
+        return 'call_to_action';
+      case 'navigation_title':
+      case 'navigation_item':
+        return 'navigation_label';
+      case 'form_input':
+        return 'user_input_guidance';
+      case 'help_text':
+        return 'assistance_text';
+      case 'notification':
+        return 'system_feedback';
+      case 'modal_content':
+        return 'dialog_message';
+      default:
+        return 'informational_text';
+    }
+  }
 }
 
 enum Priority {

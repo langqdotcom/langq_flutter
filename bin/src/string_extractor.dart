@@ -409,7 +409,7 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
       }
 
       final parameters = _extractParameters(node);
-      final context = _extractContext(node);
+      final context = _getUsefulContext(node);
       final type = _determineStringType(node, context);
       final location = _getSourceLocation(node);
 
@@ -542,27 +542,71 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     return false;
   }
 
-  String _extractContext(StringLiteral node) {
-    final contextParts = <String>[];
+  // String _extractContext(StringLiteral node) {
+  //   final contextParts = <String>[];
 
+  //   AstNode? current = node.parent;
+  //   while (current != null && contextParts.length < 3) {
+  //     if (current is NamedExpression) {
+  //       contextParts.add('${current.name.label.name}:');
+  //     } else if (current is InstanceCreationExpression) {
+  //       final typeName = current.constructorName.type.name2.lexeme;
+  //       contextParts.add(typeName);
+  //     } else if (current is MethodDeclaration) {
+  //       contextParts.add('${current.name.lexeme}()');
+  //     } else if (current is ClassDeclaration) {
+  //       contextParts.add(current.name.lexeme);
+  //     } else if (current is VariableDeclaration) {
+  //       contextParts.add('var ${current.name.lexeme}');
+  //     }
+  //     current = current.parent;
+  //   }
+
+  //   return contextParts.reversed.join(' > ');
+  // }
+
+  String _getUsefulContext(AstNode node) {
+    final parts = <String>[];
     AstNode? current = node.parent;
-    while (current != null && contextParts.length < 3) {
+
+    while (current != null && parts.length < 3) {
       if (current is NamedExpression) {
-        contextParts.add('${current.name.label.name}:');
+        // This is a named parameter like title:, child:, etc.
+        parts.add(current.name.label.name);
       } else if (current is InstanceCreationExpression) {
-        final typeName = current.constructorName.type.name2.lexeme;
-        contextParts.add(typeName);
-      } else if (current is MethodDeclaration) {
-        contextParts.add('${current.name.lexeme}()');
-      } else if (current is ClassDeclaration) {
-        contextParts.add(current.name.lexeme);
-      } else if (current is VariableDeclaration) {
-        contextParts.add('var ${current.name.lexeme}');
+        final typeName = current.constructorName.type.name2?.lexeme;
+        if (typeName != null && _isRelevantWidget(typeName)) {
+          parts.add(typeName);
+        }
       }
       current = current.parent;
     }
 
-    return contextParts.reversed.join(' > ');
+    return parts.join(' > ');
+  }
+
+  bool _isRelevantWidget(String widgetName) {
+    const relevantWidgets = {
+      'Text',
+      'AppBar',
+      'Scaffold',
+      'Dialog',
+      'AlertDialog',
+      'ElevatedButton',
+      'TextButton',
+      'OutlinedButton',
+      'FloatingActionButton',
+      'TextField',
+      'TextFormField',
+      'SnackBar',
+      'Tooltip',
+      'ListTile',
+      'Card',
+      'Container',
+      'Column',
+      'Row',
+    };
+    return relevantWidgets.contains(widgetName);
   }
 
   StringType _determineStringType(StringLiteral node, String context) {

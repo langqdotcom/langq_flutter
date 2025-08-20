@@ -66,7 +66,7 @@ class CodeReplacer {
             needsImport = true;
             stats.success++;
             print(
-              '✨ Replaced: "${_truncateString(extraction.originalRawValue)}" -> ${result.replacement}',
+              '✨ Replaced: "${_truncateString(extraction.value)}" -> ${result.replacement}',
             );
             break;
 
@@ -137,7 +137,7 @@ class CodeReplacer {
       extraction.endOffset,
     );
 
-    if (actualString == extraction.originalRawValue) {
+    if (actualString == extraction.value) {
       // Perfect match - do the replacement
       final replacement = _buildReplacement(extraction);
       final before = content.substring(0, extraction.startOffset);
@@ -161,10 +161,10 @@ class CodeReplacer {
     // Step 2a: Check if LangQKey.functionName exists in the file
     final hasLangQFunction = content.contains(expectedFunction);
 
-    print('check: ${expectedFunction} == ${extraction.originalRawValue}');
+    print('check: ${expectedFunction} == ${extraction.value}');
 
     // Step 2b: Check if the exact extracted string exists anywhere in the file
-    final hasOriginalString = content.contains(extraction.originalRawValue);
+    final hasOriginalString = content.contains(extraction.value);
 
     if (hasLangQFunction && !hasOriginalString) {
       // High confidence: function exists, original string doesn't = already replaced
@@ -197,7 +197,7 @@ class CodeReplacer {
     ExtractionData extraction,
   ) {
     // Find the string in the content
-    final stringIndex = content.indexOf(extraction.originalRawValue);
+    final stringIndex = content.indexOf(extraction.value);
 
     if (stringIndex == -1) {
       return ReplacementResult.failure(
@@ -206,13 +206,13 @@ class CodeReplacer {
     }
 
     // Check if there are multiple occurrences
-    final lastIndex = content.lastIndexOf(extraction.originalRawValue);
+    final lastIndex = content.lastIndexOf(extraction.value);
     if (stringIndex != lastIndex) {
       // Multiple occurrences - be more careful
       final lineHint = extraction.line;
       final foundIndex = _findStringNearLine(
         content,
-        extraction.originalRawValue,
+        extraction.value,
         lineHint,
       );
 
@@ -268,7 +268,7 @@ class CodeReplacer {
     int index,
   ) {
     final replacement = _buildReplacement(extraction);
-    final endIndex = index + extraction.originalRawValue.length;
+    final endIndex = index + extraction.value.length;
 
     final before = content.substring(0, index);
     final after = content.substring(endIndex);
@@ -369,7 +369,7 @@ class CodeReplacer {
 class ExtractionData {
   final String langqKey;
   final String value;
-  final String originalRawValue;
+  final String icuFormat;
   final String filePath;
   final int line;
   final int column;
@@ -377,12 +377,11 @@ class ExtractionData {
   final int endOffset;
   final List<String> placeholders;
   final Map<String, String> placeholderMappings;
-  final String parentContext;
 
   ExtractionData({
     required this.langqKey,
     required this.value,
-    required this.originalRawValue,
+    required this.icuFormat,
     required this.filePath,
     required this.line,
     required this.column,
@@ -390,14 +389,13 @@ class ExtractionData {
     required this.endOffset,
     required this.placeholders,
     required this.placeholderMappings,
-    required this.parentContext,
   });
 
   factory ExtractionData.fromJson(String key, Map<String, dynamic> json) {
     return ExtractionData(
       langqKey: key,
       value: json['value'],
-      originalRawValue: json['original_raw_value'],
+      icuFormat: json['icu_format'],
       filePath: json['file_path'],
       line: json['line_column']['line'],
       column: json['line_column']['column'],
@@ -407,7 +405,6 @@ class ExtractionData {
       placeholderMappings: Map<String, String>.from(
         json['placeholder_mappings'] ?? {},
       ),
-      parentContext: json['parent_context'],
     );
   }
 }

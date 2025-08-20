@@ -187,6 +187,11 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
       parentClass: _getParentClass(node), // NEW
       parentMethod: _getParentMethod(node), // NEW
       semanticContext: _inferSemanticContext(node), // NEW
+      placeholderTypes: _getPlaceholderTypesFromAST(
+        node,
+        placeholders,
+        placeholderMappings,
+      ),
     );
 
     seenStrings.add(value); // Mark as seen
@@ -268,6 +273,11 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
       parentClass: _getParentClass(node), // NEW
       parentMethod: _getParentMethod(node), // NEW
       semanticContext: _inferSemanticContext(node), // NEW
+      placeholderTypes: _getPlaceholderTypesFromAST(
+        node,
+        placeholders,
+        placeholderMappings,
+      ),
     );
 
     seenStrings.add(value); // Mark as seen
@@ -404,10 +414,15 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     final hierarchy = <String>[];
     AstNode? current = node.parent;
 
-    while (current != null && hierarchy.length < 5) {
+    while (current != null && hierarchy.length < 4) {
       if (current is InstanceCreationExpression) {
         final typeName = current.constructorName.type.name2.lexeme;
-        hierarchy.add(typeName);
+        if (typeName.isNotEmpty) {
+          hierarchy.add(typeName);
+        }
+      } else if (current is NamedExpression) {
+        // Capture named parameters like title:, child:, etc.
+        hierarchy.add('${current.name.label.name}:');
       }
       current = current.parent;
     }
@@ -433,6 +448,8 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
 
     while (current != null) {
       if (current is MethodDeclaration) {
+        return current.name.lexeme;
+      } else if (current is FunctionDeclaration) {
         return current.name.lexeme;
       }
       current = current.parent;
@@ -469,5 +486,74 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     }
 
     return 'general_text';
+  }
+
+  Map<String, String> _getPlaceholderTypesFromAST(
+    AstNode node,
+    List<String> placeholders,
+    Map<String, String> mappings,
+  ) {
+    final types = <String, String>{};
+
+    for (final placeholder in placeholders) {
+      final originalExpr = mappings[placeholder] ?? placeholder;
+      final baseVar = originalExpr.split('.').first;
+
+      // Find the variable type in the current class
+      String? varType = _findVariableTypeInCurrentClass(node, baseVar);
+
+      if (varType != null) {
+        types[placeholder] = varType;
+      } else {
+        // Fallback to pattern matching
+        types[placeholder] = _inferTypeFromName(baseVar);
+      }
+    }
+
+    return types;
+  }
+
+  String? _findVariableTypeInCurrentClass(AstNode node, String variableName) {
+    AstNode? current = node;
+
+    while (current != null) {
+      if (current is ClassDeclaration) {
+        for (final member in current.members) {
+          if (member is FieldDeclaration) {
+            for (final variable in member.fields.variables) {
+              if (variable.name.lexeme == variableName) {
+                return member.fields.type?.toString() ?? 'dynamic';
+              }
+            }
+          }
+        }
+        break;
+      }
+      current = current.parent;
+    }
+
+    return null;
+  }
+
+  String _inferTypeFromName(String variableName) {
+    final lower = variableName.toLowerCase();
+
+    if (lower.contains('count') ||
+        lower.contains('index') ||
+        lower.contains('number')) {
+      return 'int';
+    }
+    if (lower.contains('price') ||
+        lower.contains('amount') ||
+        lower.contains('rate')) {
+      return 'double';
+    }
+    if (lower.startsWith('is') ||
+        lower.startsWith('has') ||
+        lower.contains('enabled')) {
+      return 'bool';
+    }
+
+    return 'String';
   }
 }

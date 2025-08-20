@@ -35,7 +35,7 @@ class ExtractionConfig {
         exclude: _parseList(extraction['exclude']) ?? _getDefaultExcludes(),
         ignoreWords: _parseList(yaml['ignore_words']) ?? ['TODO', 'FIXME'],
         ignoreMarkers: _parseList(yaml['ignore_markers']) ?? ['@langq-ignore'],
-        minLength: yaml['min_length'] as int? ?? 0,
+        minLength: yaml['min_length'] as int? ?? 2,
       );
     } catch (e) {
       print('Warning: Error reading langq.yaml: $e');
