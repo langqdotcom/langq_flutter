@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'file_creater.dart';
 import 'utils.dart';
 import 'model.dart';
+import 'string_replacer.dart';
 
 class LangQPull {
   LangQPull({required this.apiKey, required this.canGenerateAsFucntion}) {
@@ -30,6 +31,8 @@ class LangQPull {
 
         String baseLocale = data['base_language'] ?? 'en';
         List languages = data['languages'] ?? [];
+
+        // print('extract data: ${data['extract_data']}');
 
         languages.sort();
 
@@ -61,6 +64,7 @@ class LangQPull {
             if (localeName == baseLocale) {
               if (canGenerateAsFucntion) {
                 await generateKeyAsFunction(translation);
+                await _replaceExtractedStrings(data);
               } else {
                 await generateKey(translation);
               }
@@ -231,5 +235,34 @@ class LangQPull {
     return placeholders.entries
         .map((entry) => IcuPlaceholder(entry.key, entry.value))
         .toList();
+  }
+
+  // In pull_command.dart, after generating functions:
+
+  Future<void> _replaceExtractedStrings(
+    Map<String, dynamic> apiResponse,
+  ) async {
+    final extractionData = apiResponse['extract_data'] as List?;
+
+    if (extractionData == null || extractionData.isEmpty) {
+      print('ℹ️  No extraction data for replacement');
+      return;
+    }
+
+    print('🔄 Replacing extracted strings with function calls...');
+
+    // Convert API data to ExtractionData objects
+    final extractions = <String, ExtractionData>{};
+    for (final entry in extractionData) {
+      final key = toCamelCase(entry['key_name']);
+      final data = entry['extract'] as Map<String, dynamic>;
+      extractions[key] = ExtractionData.fromJson(key, data);
+    }
+
+    print('replacement data prepared ${extractions}');
+
+    // Perform replacements
+    final replacer = CodeReplacer(extractions);
+    await replacer.replaceAllStrings();
   }
 }
