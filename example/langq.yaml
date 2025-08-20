@@ -3,7 +3,7 @@ extraction:
   exclude:
     # These are always excluded (not configurable)
     - "lib/l10n/generated/**"
-    - "lib/tabs/**"
+    - "lib/tabs/"
     
     # Recommended exclusions (remove lines to include)
     - "**/*.g.dart"

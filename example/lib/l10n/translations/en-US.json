@@ -1,10 +1,10 @@
 {
-  "helloWorld": "Hello World!",
-  "road.carsCount": "{carsCount, plural, one {There is {carsCount} car} other {There are {carsCount} cars}} on {roadName}",
-  "common.john": "John",
-  "common.developer": "Developer",
-  "helloMessage": "Hello {userFirst}",
-  "common.applyButton": "Apply",
-  "exampleDemo": "Example Demo",
-  "table.fruitCount": "{appleCount, plural, one {There is {appleCount} apple} other {There are {appleCount} apples}} and {orangeCountValue, plural, one {{orangeCountValue} orange} other {{orangeCountValue} oranges}} on the table."
+  "main.text.carsOnRoad": "{orangeCountValue, plural, one {There is {orangeCountValue} car on {roadName}.} other {There are {orangeCountValue} cars on {roadName}.}}",
+  "main.helloQwerty": "Hello Qwerty!",
+  "main.carsOnRoadMessage": "{orangeCountValue, plural, one {There is {orangeCountValue} car on {roadName}.} other {There are {orangeCountValue} cars on {roadName}.}}",
+  "general.helloQwerty": "Hello Qwerty!",
+  "localePicker.applyButton": "Apply",
+  "main.exampleDemo": "Example Demo",
+  "common.name.john": "John",
+  "developer": "Developer"
 }

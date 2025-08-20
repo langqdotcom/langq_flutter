@@ -7,57 +7,54 @@ import 'package:langq_localization/langq.dart';
 
 class LangQKey {
   /// Base: Apply
-  static String commonApplybutton() {
-    return LangQ.text('common.applyButton');
+  static String localepickerApplybutton() {
+    return LangQ.text('localePicker.applyButton');
   }
 
   /// Base: Developer
-  static String commonDeveloper() {
-    return LangQ.text('common.developer');
+  static String developer() {
+    return LangQ.text('developer');
   }
 
   /// Base: Example Demo
-  static String exampleDemo() {
-    return LangQ.text('exampleDemo');
+  static String mainExampledemo() {
+    return LangQ.text('main.exampleDemo');
   }
 
-  /// Base: Hello World!
-  static String helloWorld() {
-    return LangQ.text('helloWorld');
+  /// Base: Hello Qwerty!
+  static String generalHelloqwerty() {
+    return LangQ.text('general.helloQwerty');
   }
 
-  /// Base: Hello {userFirst}
-  static String helloMessage({required String userFirst}) {
-    return LangQ.text('helloMessage', args: {'userFirst': userFirst});
+  /// Base: Hello Qwerty!
+  static String mainHelloqwerty() {
+    return LangQ.text('main.helloQwerty');
   }
 
   /// Base: John
-  static String commonJohn() {
-    return LangQ.text('common.john');
+  static String commonNameJohn() {
+    return LangQ.text('common.name.john');
   }
 
-  /// Base: {appleCount, plural, one {There is {appleCount} apple} other {There are {appleCount} apples}} and {orangeCountValue, plural, one {{orangeCountValue} orange} other {{orangeCountValue} oranges}} on the table.
-  static String tableFruitcount({
-    required num appleCount,
+  /// Base: {orangeCountValue, plural, one {There is {orangeCountValue} car on {roadName}.} other {There are {orangeCountValue} cars on {roadName}.}}
+  static String mainCarsonroadmessage({
     required num orangeCountValue,
-  }) {
-    return LangQ.text(
-      'table.fruitCount',
-      args: {
-        'appleCount': '$appleCount',
-        'orangeCountValue': '$orangeCountValue',
-      },
-    );
-  }
-
-  /// Base: {carsCount, plural, one {There is {carsCount} car} other {There are {carsCount} cars}} on {roadName}
-  static String roadCarscount({
-    required num carsCount,
     required String roadName,
   }) {
     return LangQ.text(
-      'road.carsCount',
-      args: {'carsCount': '$carsCount', 'roadName': roadName},
+      'main.carsOnRoadMessage',
+      args: {'orangeCountValue': '$orangeCountValue', 'roadName': roadName},
+    );
+  }
+
+  /// Base: {orangeCountValue, plural, one {There is {orangeCountValue} car on {roadName}.} other {There are {orangeCountValue} cars on {roadName}.}}
+  static String mainTextCarsonroad({
+    required num orangeCountValue,
+    required String roadName,
+  }) {
+    return LangQ.text(
+      'main.text.carsOnRoad',
+      args: {'orangeCountValue': '$orangeCountValue', 'roadName': roadName},
     );
   }
 }

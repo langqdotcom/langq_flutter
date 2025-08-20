@@ -1,10 +1,10 @@
 {
-  "helloWorld": "Merhaba Dünya!",
-  "road.carsCount": "{carsCount, plural, one {{carsCount} araba} other {{carsCount} araba}} {roadName} üzerinde bulunmaktadır",
-  "common.john": "John",
-  "common.developer": "Geliştirici",
-  "helloMessage": "Merhaba {userFirst}",
-  "common.applyButton": "Uygula",
-  "exampleDemo": "Örnek Demo",
-  "table.fruitCount": "{appleCount, plural, one {Masada {appleCount} elma var} other {Masada {appleCount} elma var}} ve {orangeCountValue, plural, one {{orangeCountValue} portakal} other {{orangeCountValue} portakal}} var."
+  "main.text.carsOnRoad": "{orangeCountValue, plural, one {{orangeCountValue} araba {roadName} üzerinde bulunuyor.} other {{orangeCountValue} araba {roadName} üzerinde bulunuyor.}}",
+  "main.helloQwerty": "Merhaba Qwerty!",
+  "main.carsOnRoadMessage": "{orangeCountValue, plural, one {{roadName} üzerinde {orangeCountValue} araba var.} other {{roadName} üzerinde {orangeCountValue} araba var.}}",
+  "general.helloQwerty": "Merhaba Qwerty!",
+  "localePicker.applyButton": "Uygula",
+  "main.exampleDemo": "Örnek Demo",
+  "common.name.john": "John",
+  "developer": "Geliştirici"
 }

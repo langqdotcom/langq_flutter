@@ -1,10 +1,10 @@
 {
-  "helloWorld": "Olá Mundo!",
-  "road.carsCount": "{carsCount, plural, one {Existe {carsCount} carro} other {Existem {carsCount} carros}} na {roadName}",
-  "common.john": "John",
-  "common.developer": "Desenvolvedor",
-  "helloMessage": "Olá {userFirst}",
-  "common.applyButton": "Aplicar",
-  "exampleDemo": "Demonstração de Exemplo",
-  "table.fruitCount": "{appleCount, plural, one {Há {appleCount} maçã} other {Há {appleCount} maçãs}} e {orangeCountValue, plural, one {{orangeCountValue} laranja} other {{orangeCountValue} laranjas}} na mesa."
+  "main.text.carsOnRoad": "{orangeCountValue, plural, one {Há {orangeCountValue} carro na {roadName}.} other {Há {orangeCountValue} carros na {roadName}.}}",
+  "main.helloQwerty": "Olá Qwerty!",
+  "main.carsOnRoadMessage": "{orangeCountValue, plural, one {Há {orangeCountValue} carro na {roadName}.} other {Há {orangeCountValue} carros na {roadName}.}}",
+  "general.helloQwerty": "Olá Qwerty!",
+  "localePicker.applyButton": "Aplicar",
+  "main.exampleDemo": "Demonstração de Exemplo",
+  "common.name.john": "John",
+  "developer": "Desenvolvedor"
 }

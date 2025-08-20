@@ -70,7 +70,7 @@ class _LocalePickerState extends State<LocalePicker> {
             color: const Color.fromARGB(255, 109, 85, 114),
             padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
             child: Text(
-              LangQKey.commonApplybutton(),
+              LangQKey.localepickerApplybutton(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,

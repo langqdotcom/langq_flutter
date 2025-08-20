@@ -1,10 +1,10 @@
 {
-  "helloWorld": "你好世界!",
-  "road.carsCount": "{carsCount, plural, one {在 {roadName} 上有 {carsCount} 辆车} other {在 {roadName} 上有 {carsCount} 辆车}}",
-  "common.john": "John",
-  "common.developer": "开发者",
-  "helloMessage": "你好 {userFirst}",
-  "common.applyButton": "应用",
-  "exampleDemo": "示例演示",
-  "table.fruitCount": "桌上有{appleCount, plural, other {{appleCount} 个苹果}}和{orangeCountValue, plural, other {{orangeCountValue} 个橙子}}。"
+  "main.text.carsOnRoad": "{orangeCountValue, plural, other {{roadName}上有{orangeCountValue}辆汽车。}}",
+  "main.helloQwerty": "你好 Qwerty!",
+  "main.carsOnRoadMessage": "{orangeCountValue, plural, other {{roadName} 上有 {orangeCountValue} 辆车。}}",
+  "general.helloQwerty": "你好 Qwerty!",
+  "localePicker.applyButton": "应用",
+  "main.exampleDemo": "示例演示",
+  "common.name.john": "约翰",
+  "developer": "开发者"
 }

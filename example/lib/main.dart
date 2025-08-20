@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: value.localizationsDelegates,
           locale: value.currentLocale,
           supportedLocales: LangQLocales.supportedLocales,
-          title: LangQKey.exampleDemo(),
+          title: LangQKey.mainExampledemo(),
           home: const Home(),
         );
       },
@@ -64,12 +64,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   // Hello World!
   List<String> user = [
     //
-    LangQKey.commonJohn(),
+    LangQKey.commonNameJohn(),
     // @langq-ignore
     'David ',
   ];
 
-  String account = LangQKey.commonDeveloper();
+  String account = LangQKey.developer();
 
   // final _tabs = [
   //   'Simple',
@@ -94,11 +94,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         children: [
           Center(
             child: Text(
-              LangQKey.roadCarscount(roadName: roadName, carsCount: carsCount),
+              LangQKey.mainTextCarsonroad(
+                roadName: roadName,
+                orangeCountValue: Orange.count.value,
+              ),
             ),
           ),
 
-          Center(child: Text(LangQKey.helloMessage(userFirst: user.first))),
+          Center(child: Text(LangQKey.mainHelloqwerty())),
         ],
       ),
     );

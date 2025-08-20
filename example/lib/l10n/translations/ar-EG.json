@@ -1,10 +1,10 @@
 {
-  "helloWorld": "مرحبا بالعالم!",
-  "road.carsCount": "{carsCount, plural, zero {لا توجد سيارات} one {توجد سيارة واحدة} two {توجد سيارتان} few {توجد {carsCount} سيارات} many {توجد {carsCount} سيارة} other {توجد {carsCount} سيارة}} على {roadName}",
-  "common.john": "John",
-  "common.developer": "مطور",
-  "helloMessage": "مرحباً {userFirst}",
-  "common.applyButton": "تطبيق",
-  "exampleDemo": "عرض توضيحي",
-  "table.fruitCount": "{appleCount, plural, one {يوجد {appleCount} تفاحة} two {يوجد {appleCount} تفاحتان} few {يوجد {appleCount} تفاحات} many {يوجد {appleCount} تفاحات} other {يوجد {appleCount} تفاحات}} و {orangeCountValue, plural, one {{orangeCountValue} برتقالة} two {{orangeCountValue} برتقالتان} few {{orangeCountValue} برتقالات} many {{orangeCountValue} برتقالات} other {{orangeCountValue} برتقالة}} على الطاولة."
+  "main.text.carsOnRoad": "{orangeCountValue, plural, one {توجد سيارة واحدة على {roadName}.} two {توجد سيارتان على {roadName}.} few {توجد {orangeCountValue} سيارات على {roadName}.} many {توجد {orangeCountValue} سيارة على {roadName}.} other {توجد {orangeCountValue} سيارة على {roadName}.}}",
+  "main.helloQwerty": "مرحبا Qwerty!",
+  "main.carsOnRoadMessage": "{orangeCountValue, plural, one {يوجد {orangeCountValue} سيارة على {roadName}.} two {يوجد {orangeCountValue} سيارتان على {roadName}.} few {يوجد {orangeCountValue} سيارات على {roadName}.} many {يوجد {orangeCountValue} سيارة على {roadName}.} other {يوجد {orangeCountValue} سيارة على {roadName}.}}",
+  "general.helloQwerty": "مرحباً Qwerty!",
+  "localePicker.applyButton": "تطبيق",
+  "main.exampleDemo": "عرض توضيحي مثال",
+  "common.name.john": "John",
+  "developer": "مطور"
 }

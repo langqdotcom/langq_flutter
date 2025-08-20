@@ -1,10 +1,10 @@
 {
-  "helloWorld": "Привет мир!",
-  "road.carsCount": "{carsCount, plural, one {На {roadName} находится {carsCount} машина} few {На {roadName} находится {carsCount} машины} many {На {roadName} находится {carsCount} машин} other {На {roadName} находится {carsCount} машин}}",
-  "common.john": "John",
-  "common.developer": "Разработчик",
-  "helloMessage": "Привет {userFirst}",
-  "common.applyButton": "Применить",
-  "exampleDemo": "Пример Демо",
-  "table.fruitCount": "{appleCount, plural, one {На столе {appleCount} яблоко} few {На столе {appleCount} яблока} many {На столе {appleCount} яблок} other {На столе {appleCount} яблок}} и {orangeCountValue, plural, one {{orangeCountValue} апельсин} few {{orangeCountValue} апельсина} many {{orangeCountValue} апельсинов} other {{orangeCountValue} апельсинов}}."
+  "main.text.carsOnRoad": "{orangeCountValue, plural, one {На {roadName} находится {orangeCountValue} автомобиль.} few {На {roadName} находится {orangeCountValue} автомобиля.} many {На {roadName} находится {orangeCountValue} автомобилей.} other {На {roadName} находится {orangeCountValue} автомобилей.}}",
+  "main.helloQwerty": "Привет Qwerty!",
+  "main.carsOnRoadMessage": "{orangeCountValue, plural, one {На {roadName} находится {orangeCountValue} машина.} few {На {roadName} находится {orangeCountValue} машины.} many {На {roadName} находится {orangeCountValue} машин.} other {На {roadName} находится {orangeCountValue} машин.}}",
+  "general.helloQwerty": "Привет Qwerty!",
+  "localePicker.applyButton": "Применить",
+  "main.exampleDemo": "Пример демонстрации",
+  "common.name.john": "John",
+  "developer": "Разработчик"
 }
