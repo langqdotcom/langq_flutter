@@ -127,7 +127,6 @@ class TranslateCommand extends Command<void> {
 
     final response = await _pushToApi(newStrings, apiKey);
 
-    print('>>>>>> $response');
 
     if (response['success'] == true) {
       await _savePushMapping(projectPath, {}, {'strings': strings});

@@ -36,11 +36,8 @@ class StringExtractor {
         try {
           final strings = await _extractFromFile(entity);
           results.addAll(strings);
-          print('📄 ${path.basename(entity.path)}: ${strings.length} strings');
-
-          // Debug output
-          for (final string in strings) {
-            print('   - "${string.value}" (${string.parentContext})');
+          if (strings.isNotEmpty) {
+            print('📄 ${path.basename(entity.path)}: ${strings.length} strings');
           }
         } catch (e) {
           print('⚠️  Error in ${entity.path}: $e');
@@ -219,7 +216,6 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
 
     // Check if this line should be ignored
     if (ignoredLines.contains(location.lineNumber)) {
-      print('🚫 Ignored: "${value}" at line ${location.lineNumber}');
       super.visitSimpleStringLiteral(node);
       return;
     }
@@ -318,7 +314,6 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
 
     // Check if this line should be ignored
     if (ignoredLines.contains(location.lineNumber)) {
-      print('🚫 Ignored: "${value}" at line ${location.lineNumber}');
       super.visitStringInterpolation(node);
       return;
     }

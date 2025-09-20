@@ -192,9 +192,6 @@ class PushCommand extends Command<void> {
       body: jsonEncode(payload),
     );
 
-    print(
-      'response ${response.statusCode == 200} ${jsonDecode(response.body)}',
-    );
 
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
