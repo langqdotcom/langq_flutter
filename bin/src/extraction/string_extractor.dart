@@ -5,7 +5,7 @@ import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
 import 'package:path/path.dart' as path;
-import '../src/utils.dart';
+import '../utils.dart';
 
 // lib/src/extraction/string_extractor.dart
 
@@ -128,6 +128,85 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     required this.ignoredLines,
   });
 
+  // bool _shouldIgnoreString(String value) {
+  //   // Empty or whitespace-only strings
+  //   if (value.trim().isEmpty) return true;
+  //   if (value.trim().length <= 1) return true;
+
+  //   // Check against regex patterns
+  //   for (final pattern in ignoredPatterns) {
+  //     try {
+  //       if (RegExp(pattern).hasMatch(value)) return true;
+  //     } catch (e) {
+  //       print('Invalid regex pattern: $pattern - $e');
+  //     }
+  //   }
+
+  //   // NEW: Check if string is inside print/debugPrint calls
+  //   if (_isInsidePrintCall()) return true;
+
+  //   final lowerValue = value.toLowerCase().trim();
+
+  //   // Common non-localizable strings (case-insensitive)
+  //   final commonIgnored = {
+  //     // Widget names and Flutter internals
+  //     'materialapp', 'scaffold', 'appbar', 'container', 'widget',
+  //     'row', 'column', 'center', 'padding', 'sizedbox', 'text',
+  //     'elevated', 'button', 'icon', 'image', 'card', 'listview',
+  //     'textfield', 'checkbox', 'radio', 'switch', 'slider',
+
+  //     // Method names and common identifiers
+  //     'main', 'build', 'setstate', 'initstate', 'dispose', 'context',
+  //     'child', 'children', 'data', 'value', 'key', 'name', 'id',
+  //     'index', 'item', 'items', 'list', 'map', 'set', 'string',
+
+  //     // File paths and extensions
+  //     'assets', 'images', 'lib', 'src', 'test', 'android', 'ios',
+  //     'dart', 'json', 'yaml', 'xml', 'png', 'jpg', 'svg', 'gif',
+  //     'pdf', 'mp4', 'mp3', 'wav',
+
+  //     // Package names and imports
+  //     'flutter', 'material', 'cupertino', 'package:', 'import',
+  //     'export', 'part', 'library', 'show', 'hide', 'as',
+
+  //     // Common development/debug strings
+  //     'debug', 'test', 'mock', 'temp', 'tmp', 'example',
+  //     'todo', 'fixme', 'hack', 'note', 'warning', 'error',
+
+  //     // Network and API related
+  //     'http', 'https', 'api', 'rest', 'json', 'xml', 'get',
+  //     'post', 'put', 'delete', 'patch', 'head', 'options',
+
+  //     // Database and storage
+  //     'sql', 'database', 'table', 'column', 'row', 'index',
+  //     'primary', 'foreign', 'unique', 'null', 'not', 'default',
+
+  //     // Common abbreviations
+  //     'ok', 'no', 'yes', 'on', 'off', 'true', 'false',
+  //   };
+
+  //   if (commonIgnored.contains(lowerValue)) return true;
+
+  //   // Skip strings that are likely CSS/style values
+  //   if (RegExp(r'^[\d\s+\-*/().px%em]+$').hasMatch(value)) return true;
+
+  //   return false;
+  // }
+
+  bool _isInsidePrintCall(SimpleStringLiteral node) {
+    AstNode? current = node.parent;
+    while (current != null) {
+      if (current is MethodInvocation) {
+        final methodName = current.methodName.name.toLowerCase();
+        if (methodName == 'print' || methodName == 'debugprint') {
+          return true;
+        }
+      }
+      current = current.parent;
+    }
+    return false;
+  }
+
   @override
   void visitSimpleStringLiteral(SimpleStringLiteral node) {
     final value = node.stringValue;
@@ -159,6 +238,18 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
 
     // Apply filters
     if (!_shouldExtractString(value)) {
+      super.visitSimpleStringLiteral(node);
+      return;
+    }
+
+    if (_isInsidePrintCall(node)) {
+      super.visitSimpleStringLiteral(node);
+      return;
+    }
+
+    // Skip strings that look like file paths
+    if (value.contains('/') &&
+        (value.contains('.') || value.startsWith('assets'))) {
       super.visitSimpleStringLiteral(node);
       return;
     }
@@ -335,6 +426,13 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     // Length check
     if (value.length < config.minLength) return false;
 
+    // Skip strings that don't contain any alphabetic characters outside of interpolated expressions
+    // Remove all ${...} placeholders and check if remaining text has alphabets
+    final textWithoutPlaceholders = value.replaceAll(RegExp(r'\$\{[^}]*\}'), '');
+    if (!RegExp(r'[a-zA-Z]').hasMatch(textWithoutPlaceholders)) {
+      return false;
+    }
+
     // Ignore words check
     for (final word in config.ignoreWords) {
       if (value.contains(word)) return false;
@@ -344,8 +442,9 @@ class _StringExtractionVisitor extends RecursiveAstVisitor<void> {
     if (RegExp(r'^\d+$').hasMatch(value)) return false; // Pure numbers
     if (value.startsWith('package:') || value.startsWith('dart:')) return false;
     if (RegExp(r'^https?://').hasMatch(value)) return false;
-    if (RegExp(r'^[A-Z_][A-Z0-9_]*$').hasMatch(value))
+    if (RegExp(r'^[A-Z_][A-Z0-9_]*$').hasMatch(value)) {
       return false; // Constants
+    }
     if (value.startsWith('assets/')) return false;
 
     return true;

@@ -1,9 +1,9 @@
 // lib/src/commands/extract_command.dart
 import 'dart:io';
 import 'package:args/command_runner.dart';
-import 'extraction/extraction_config.dart';
-import 'extraction/string_extractor.dart';
-import 'extraction/json_exporter.dart';
+import 'src/extraction/extraction_config.dart';
+import 'src/extraction/string_extractor.dart';
+import 'src/extraction/json_exporter.dart';
 
 void main(List<String> args) async {
   await ExtractCommand().run();

@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:args/command_runner.dart';
 import 'package:http/http.dart' as http;
-import 'extraction/json_exporter.dart';
+import 'src/extraction/json_exporter.dart';
 import 'src/api_key_service.dart';
 
 void main(List<String> args) async {

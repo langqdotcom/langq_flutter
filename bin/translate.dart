@@ -1,9 +1,9 @@
 // lib/src/commands/translate_command.dart
 import 'dart:io';
 import 'package:args/command_runner.dart';
-import 'extraction/extraction_config.dart';
-import 'extraction/string_extractor.dart';
-import 'extraction/json_exporter.dart';
+import 'src/extraction/extraction_config.dart';
+import 'src/extraction/string_extractor.dart';
+import 'src/extraction/json_exporter.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'src/langq_pull.dart';

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'utils.dart';
-import 'string_extractor.dart';
+import 'extraction/models.dart';
 
 class LangQTranslate {
   LangQTranslate({required this.apiKey, required this.extractedStrings}) {
@@ -31,9 +31,9 @@ class LangQTranslate {
                 // 'key': e.suggestedKey,
                 'value': e.value,
                 'path': e.filePath,
-                'placeholders': e.parameters,
-                'line_column': {'line': e.lineNumber, 'column': e.columnNumber},
-                'type': e.type.toString(),
+                'placeholders': e.placeholders,
+                'line_column': {'line': e.line, 'column': e.column},
+                // 'type': e..toString(),
               };
             }),
           ],
